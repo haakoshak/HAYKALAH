@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 480" width="1440" height="480" fill="none" stroke="#ffffff" stroke-width="1.5" stroke-linejoin="miter" stroke-linecap="square" stroke-miterlimit="10">
+  <!-- Riyadh sky view, in the HAYKALAH pattern-tile line language: one even stroke, square joins, no fills.
+       An elevated view north along King Fahd Road: a long horizon with the low city on it, Al Faisaliah (the pointed
+       tower with the sphere) and Kingdom Centre (the arch-topped tower) as the two hero silhouettes either side of the
+       road, which converges on the distant KAFD cluster (PIF Tower tallest) and Burj Rafal.
+       White only; colour and opacity are set where it is used. -->
+  <!-- Long horizon with the low city line (starts at x=620 so it never runs behind the hero text column) -->
+  <path vector-effect="non-scaling-stroke" d="M620,318 H650 V310 H664 V302 H678 V310 H692 V318 H744 V314 H780 V318 H835.5"/>
+  <path vector-effect="non-scaling-stroke" d="M884.5,318 H930 V313 H962 V318 H1010 V310 H1030 V318 H1060 V314 H1080 V318 H1252 V313 H1276 V318 H1298.4"/>
+  <path vector-effect="non-scaling-stroke" d="M1361.6,318 H1384 V312 H1410 V318 H1440"/>
+  <!-- King Fahd Road: two thin lines converging on the horizon -->
+  <path vector-effect="non-scaling-stroke" d="M840,480 L1143,322 M1300,480 L1157,322"/>
+  <!-- KAFD in the distance, with Burj Rafal -->
+  <path vector-effect="non-scaling-stroke" d="M1092,318 V270 H1102 V318"/>
+  <path vector-effect="non-scaling-stroke" d="M1108,318 V252 H1113 V246 H1119 V252 H1124 V318"/>
+  <path vector-effect="non-scaling-stroke" d="M1132,318 V214 L1150,204 V318 M1141,209 V318"/>
+  <path vector-effect="non-scaling-stroke" d="M1158,318 V258 H1170 V318"/>
+  <path vector-effect="non-scaling-stroke" d="M1176,318 V236 H1190 V318 M1183,236 V226"/>
+  <path vector-effect="non-scaling-stroke" d="M1214,318 V246 L1226,236 V318"/>
+  <!-- Al Faisaliah: tapering frame, the sphere, the spire, its base -->
+  <path vector-effect="non-scaling-stroke" d="M828,430 L838,280 L848,232 L860,182 L872,232 L882,280 L892,430"/>
+  <path vector-effect="non-scaling-stroke" d="M838,280 H882 M833.7,344 H886.3 M812,430 H908"/>
+  <circle vector-effect="non-scaling-stroke" cx="860" cy="233" r="9.5"/>
+  <path vector-effect="non-scaling-stroke" d="M860,182 V154"/>
+  <!-- Kingdom Centre: the shaft, the inverted arch, the sky bridge, the podium wings -->
+  <path vector-effect="non-scaling-stroke" d="M1298.4,420 V320 Q1298.4,217 1312.3,141 Q1330,331 1347.7,141 Q1361.6,217 1361.6,320 V420"/>
+  <path vector-effect="non-scaling-stroke" d="M1313.5,153 H1346.5 M1314.1,159 H1345.9"/>
+  <path vector-effect="non-scaling-stroke" d="M1262,420 V400 H1298.4 M1361.6,400 H1398 V420 M1258,420 H1402"/>
+</svg>

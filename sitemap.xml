@@ -1,0 +1,1152 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Written by sites/haykalah/tools/build-pages.mjs. Every page appears in both languages with its hreflang alternates. -->
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  <url>
+    <loc>https://www.haykalah.com/en/</loc>
+    <lastmod>2026-10-12</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.haykalah.com/en/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.haykalah.com/ar/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.haykalah.com/en/"/>
+  </url>
+  <url>
+    <loc>https://www.haykalah.com/ar/</loc>
+    <lastmod>2026-10-12</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.haykalah.com/en/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.haykalah.com/ar/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.haykalah.com/en/"/>
+  </url>
+  <url>
+    <loc>https://www.haykalah.com/en/expertise.html</loc>
+    <lastmod>2026-10-12</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.haykalah.com/en/expertise.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.haykalah.com/ar/expertise.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.haykalah.com/en/expertise.html"/>
+  </url>
+  <url>
+    <loc>https://www.haykalah.com/ar/expertise.html</loc>
+    <lastmod>2026-10-12</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.haykalah.com/en/expertise.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.haykalah.com/ar/expertise.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.haykalah.com/en/expertise.html"/>
+  </url>
+  <url>
+    <loc>https://www.haykalah.com/en/expertise/real-estate-structuring.html</loc>
+    <lastmod>2026-10-12</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.haykalah.com/en/expertise/real-estate-structuring.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.haykalah.com/ar/expertise/real-estate-structuring.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.haykalah.com/en/expertise/real-estate-structuring.html"/>
+  </url>
+  <url>
+    <loc>https://www.haykalah.com/ar/expertise/real-estate-structuring.html</loc>
+    <lastmod>2026-10-12</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.haykalah.com/en/expertise/real-estate-structuring.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.haykalah.com/ar/expertise/real-estate-structuring.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.haykalah.com/en/expertise/real-estate-structuring.html"/>
+  </url>
+  <url>
+    <loc>https://www.haykalah.com/en/expertise/family-offices-sovereign-partners.html</loc>
+    <lastmod>2026-10-12</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.haykalah.com/en/expertise/family-offices-sovereign-partners.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.haykalah.com/ar/expertise/family-offices-sovereign-partners.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.haykalah.com/en/expertise/family-offices-sovereign-partners.html"/>
+  </url>
+  <url>
+    <loc>https://www.haykalah.com/ar/expertise/family-offices-sovereign-partners.html</loc>
+    <lastmod>2026-10-12</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.haykalah.com/en/expertise/family-offices-sovereign-partners.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.haykalah.com/ar/expertise/family-offices-sovereign-partners.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.haykalah.com/en/expertise/family-offices-sovereign-partners.html"/>
+  </url>
+  <url>
+    <loc>https://www.haykalah.com/en/expertise/financial-capital-structuring.html</loc>
+    <lastmod>2026-10-12</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.haykalah.com/en/expertise/financial-capital-structuring.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.haykalah.com/ar/expertise/financial-capital-structuring.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.haykalah.com/en/expertise/financial-capital-structuring.html"/>
+  </url>
+  <url>
+    <loc>https://www.haykalah.com/ar/expertise/financial-capital-structuring.html</loc>
+    <lastmod>2026-10-12</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.haykalah.com/en/expertise/financial-capital-structuring.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.haykalah.com/ar/expertise/financial-capital-structuring.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.haykalah.com/en/expertise/financial-capital-structuring.html"/>
+  </url>
+  <url>
+    <loc>https://www.haykalah.com/en/expertise/venture-building.html</loc>
+    <lastmod>2026-10-12</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.haykalah.com/en/expertise/venture-building.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.haykalah.com/ar/expertise/venture-building.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.haykalah.com/en/expertise/venture-building.html"/>
+  </url>
+  <url>
+    <loc>https://www.haykalah.com/ar/expertise/venture-building.html</loc>
+    <lastmod>2026-10-12</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.haykalah.com/en/expertise/venture-building.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.haykalah.com/ar/expertise/venture-building.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.haykalah.com/en/expertise/venture-building.html"/>
+  </url>
+  <url>
+    <loc>https://www.haykalah.com/en/expertise/digital-transformation.html</loc>
+    <lastmod>2026-10-12</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.haykalah.com/en/expertise/digital-transformation.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.haykalah.com/ar/expertise/digital-transformation.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.haykalah.com/en/expertise/digital-transformation.html"/>
+  </url>
+  <url>
+    <loc>https://www.haykalah.com/ar/expertise/digital-transformation.html</loc>
+    <lastmod>2026-10-12</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.haykalah.com/en/expertise/digital-transformation.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.haykalah.com/ar/expertise/digital-transformation.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.haykalah.com/en/expertise/digital-transformation.html"/>
+  </url>
+  <url>
+    <loc>https://www.haykalah.com/en/expertise/turning-expenses-into-revenue.html</loc>
+    <lastmod>2026-10-12</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.haykalah.com/en/expertise/turning-expenses-into-revenue.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.haykalah.com/ar/expertise/turning-expenses-into-revenue.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.haykalah.com/en/expertise/turning-expenses-into-revenue.html"/>
+  </url>
+  <url>
+    <loc>https://www.haykalah.com/ar/expertise/turning-expenses-into-revenue.html</loc>
+    <lastmod>2026-10-12</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.haykalah.com/en/expertise/turning-expenses-into-revenue.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.haykalah.com/ar/expertise/turning-expenses-into-revenue.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.haykalah.com/en/expertise/turning-expenses-into-revenue.html"/>
+  </url>
+  <url>
+    <loc>https://www.haykalah.com/en/clients/family-offices.html</loc>
+    <lastmod>2026-10-12</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.haykalah.com/en/clients/family-offices.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.haykalah.com/ar/clients/family-offices.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.haykalah.com/en/clients/family-offices.html"/>
+  </url>
+  <url>
+    <loc>https://www.haykalah.com/ar/clients/family-offices.html</loc>
+    <lastmod>2026-10-12</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.haykalah.com/en/clients/family-offices.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.haykalah.com/ar/clients/family-offices.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.haykalah.com/en/clients/family-offices.html"/>
+  </url>
+  <url>
+    <loc>https://www.haykalah.com/en/clients/founders-investors.html</loc>
+    <lastmod>2026-10-12</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.haykalah.com/en/clients/founders-investors.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.haykalah.com/ar/clients/founders-investors.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.haykalah.com/en/clients/founders-investors.html"/>
+  </url>
+  <url>
+    <loc>https://www.haykalah.com/ar/clients/founders-investors.html</loc>
+    <lastmod>2026-10-12</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.haykalah.com/en/clients/founders-investors.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.haykalah.com/ar/clients/founders-investors.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.haykalah.com/en/clients/founders-investors.html"/>
+  </url>
+  <url>
+    <loc>https://www.haykalah.com/en/clients/sovereign-government.html</loc>
+    <lastmod>2026-10-12</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.haykalah.com/en/clients/sovereign-government.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.haykalah.com/ar/clients/sovereign-government.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.haykalah.com/en/clients/sovereign-government.html"/>
+  </url>
+  <url>
+    <loc>https://www.haykalah.com/ar/clients/sovereign-government.html</loc>
+    <lastmod>2026-10-12</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.haykalah.com/en/clients/sovereign-government.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.haykalah.com/ar/clients/sovereign-government.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.haykalah.com/en/clients/sovereign-government.html"/>
+  </url>
+  <url>
+    <loc>https://www.haykalah.com/en/clients/banks-institutions.html</loc>
+    <lastmod>2026-10-12</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.haykalah.com/en/clients/banks-institutions.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.haykalah.com/ar/clients/banks-institutions.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.haykalah.com/en/clients/banks-institutions.html"/>
+  </url>
+  <url>
+    <loc>https://www.haykalah.com/ar/clients/banks-institutions.html</loc>
+    <lastmod>2026-10-12</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.haykalah.com/en/clients/banks-institutions.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.haykalah.com/ar/clients/banks-institutions.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.haykalah.com/en/clients/banks-institutions.html"/>
+  </url>
+  <url>
+    <loc>https://www.haykalah.com/en/clients/international-companies.html</loc>
+    <lastmod>2026-10-12</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.haykalah.com/en/clients/international-companies.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.haykalah.com/ar/clients/international-companies.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.haykalah.com/en/clients/international-companies.html"/>
+  </url>
+  <url>
+    <loc>https://www.haykalah.com/ar/clients/international-companies.html</loc>
+    <lastmod>2026-10-12</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.haykalah.com/en/clients/international-companies.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.haykalah.com/ar/clients/international-companies.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.haykalah.com/en/clients/international-companies.html"/>
+  </url>
+  <url>
+    <loc>https://www.haykalah.com/en/approach.html</loc>
+    <lastmod>2026-10-12</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.haykalah.com/en/approach.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.haykalah.com/ar/approach.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.haykalah.com/en/approach.html"/>
+  </url>
+  <url>
+    <loc>https://www.haykalah.com/ar/approach.html</loc>
+    <lastmod>2026-10-12</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.haykalah.com/en/approach.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.haykalah.com/ar/approach.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.haykalah.com/en/approach.html"/>
+  </url>
+  <url>
+    <loc>https://www.haykalah.com/en/leadership.html</loc>
+    <lastmod>2026-10-12</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.haykalah.com/en/leadership.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.haykalah.com/ar/leadership.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.haykalah.com/en/leadership.html"/>
+  </url>
+  <url>
+    <loc>https://www.haykalah.com/ar/leadership.html</loc>
+    <lastmod>2026-10-12</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.haykalah.com/en/leadership.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.haykalah.com/ar/leadership.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.haykalah.com/en/leadership.html"/>
+  </url>
+  <url>
+    <loc>https://www.haykalah.com/en/about.html</loc>
+    <lastmod>2026-10-12</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.haykalah.com/en/about.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.haykalah.com/ar/about.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.haykalah.com/en/about.html"/>
+  </url>
+  <url>
+    <loc>https://www.haykalah.com/ar/about.html</loc>
+    <lastmod>2026-10-12</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.haykalah.com/en/about.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.haykalah.com/ar/about.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.haykalah.com/en/about.html"/>
+  </url>
+  <url>
+    <loc>https://www.haykalah.com/en/work.html</loc>
+    <lastmod>2026-10-12</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.haykalah.com/en/work.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.haykalah.com/ar/work.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.haykalah.com/en/work.html"/>
+  </url>
+  <url>
+    <loc>https://www.haykalah.com/ar/work.html</loc>
+    <lastmod>2026-10-12</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.haykalah.com/en/work.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.haykalah.com/ar/work.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.haykalah.com/en/work.html"/>
+  </url>
+  <url>
+    <loc>https://www.haykalah.com/en/sectors.html</loc>
+    <lastmod>2026-10-12</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.haykalah.com/en/sectors.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.haykalah.com/ar/sectors.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.haykalah.com/en/sectors.html"/>
+  </url>
+  <url>
+    <loc>https://www.haykalah.com/ar/sectors.html</loc>
+    <lastmod>2026-10-12</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.haykalah.com/en/sectors.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.haykalah.com/ar/sectors.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.haykalah.com/en/sectors.html"/>
+  </url>
+  <url>
+    <loc>https://www.haykalah.com/en/sectors/ventures-technology-platforms.html</loc>
+    <lastmod>2026-10-12</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.haykalah.com/en/sectors/ventures-technology-platforms.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.haykalah.com/ar/sectors/ventures-technology-platforms.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.haykalah.com/en/sectors/ventures-technology-platforms.html"/>
+  </url>
+  <url>
+    <loc>https://www.haykalah.com/ar/sectors/ventures-technology-platforms.html</loc>
+    <lastmod>2026-10-12</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.haykalah.com/en/sectors/ventures-technology-platforms.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.haykalah.com/ar/sectors/ventures-technology-platforms.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.haykalah.com/en/sectors/ventures-technology-platforms.html"/>
+  </url>
+  <url>
+    <loc>https://www.haykalah.com/en/sectors/real-estate-urban-development.html</loc>
+    <lastmod>2026-10-12</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.haykalah.com/en/sectors/real-estate-urban-development.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.haykalah.com/ar/sectors/real-estate-urban-development.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.haykalah.com/en/sectors/real-estate-urban-development.html"/>
+  </url>
+  <url>
+    <loc>https://www.haykalah.com/ar/sectors/real-estate-urban-development.html</loc>
+    <lastmod>2026-10-12</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.haykalah.com/en/sectors/real-estate-urban-development.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.haykalah.com/ar/sectors/real-estate-urban-development.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.haykalah.com/en/sectors/real-estate-urban-development.html"/>
+  </url>
+  <url>
+    <loc>https://www.haykalah.com/en/sectors/hospitality-retail-lifestyle.html</loc>
+    <lastmod>2026-10-12</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.haykalah.com/en/sectors/hospitality-retail-lifestyle.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.haykalah.com/ar/sectors/hospitality-retail-lifestyle.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.haykalah.com/en/sectors/hospitality-retail-lifestyle.html"/>
+  </url>
+  <url>
+    <loc>https://www.haykalah.com/ar/sectors/hospitality-retail-lifestyle.html</loc>
+    <lastmod>2026-10-12</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.haykalah.com/en/sectors/hospitality-retail-lifestyle.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.haykalah.com/ar/sectors/hospitality-retail-lifestyle.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.haykalah.com/en/sectors/hospitality-retail-lifestyle.html"/>
+  </url>
+  <url>
+    <loc>https://www.haykalah.com/en/sectors/family-offices-hnwi.html</loc>
+    <lastmod>2026-10-12</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.haykalah.com/en/sectors/family-offices-hnwi.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.haykalah.com/ar/sectors/family-offices-hnwi.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.haykalah.com/en/sectors/family-offices-hnwi.html"/>
+  </url>
+  <url>
+    <loc>https://www.haykalah.com/ar/sectors/family-offices-hnwi.html</loc>
+    <lastmod>2026-10-12</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.haykalah.com/en/sectors/family-offices-hnwi.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.haykalah.com/ar/sectors/family-offices-hnwi.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.haykalah.com/en/sectors/family-offices-hnwi.html"/>
+  </url>
+  <url>
+    <loc>https://www.haykalah.com/en/sectors/banking-capital-markets-sukuk.html</loc>
+    <lastmod>2026-10-12</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.haykalah.com/en/sectors/banking-capital-markets-sukuk.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.haykalah.com/ar/sectors/banking-capital-markets-sukuk.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.haykalah.com/en/sectors/banking-capital-markets-sukuk.html"/>
+  </url>
+  <url>
+    <loc>https://www.haykalah.com/ar/sectors/banking-capital-markets-sukuk.html</loc>
+    <lastmod>2026-10-12</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.haykalah.com/en/sectors/banking-capital-markets-sukuk.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.haykalah.com/ar/sectors/banking-capital-markets-sukuk.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.haykalah.com/en/sectors/banking-capital-markets-sukuk.html"/>
+  </url>
+  <url>
+    <loc>https://www.haykalah.com/en/sectors/technology-digital-fintech.html</loc>
+    <lastmod>2026-10-12</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.haykalah.com/en/sectors/technology-digital-fintech.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.haykalah.com/ar/sectors/technology-digital-fintech.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.haykalah.com/en/sectors/technology-digital-fintech.html"/>
+  </url>
+  <url>
+    <loc>https://www.haykalah.com/ar/sectors/technology-digital-fintech.html</loc>
+    <lastmod>2026-10-12</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.haykalah.com/en/sectors/technology-digital-fintech.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.haykalah.com/ar/sectors/technology-digital-fintech.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.haykalah.com/en/sectors/technology-digital-fintech.html"/>
+  </url>
+  <url>
+    <loc>https://www.haykalah.com/en/sectors/industrial-manufacturing-energy.html</loc>
+    <lastmod>2026-10-12</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.haykalah.com/en/sectors/industrial-manufacturing-energy.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.haykalah.com/ar/sectors/industrial-manufacturing-energy.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.haykalah.com/en/sectors/industrial-manufacturing-energy.html"/>
+  </url>
+  <url>
+    <loc>https://www.haykalah.com/ar/sectors/industrial-manufacturing-energy.html</loc>
+    <lastmod>2026-10-12</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.haykalah.com/en/sectors/industrial-manufacturing-energy.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.haykalah.com/ar/sectors/industrial-manufacturing-energy.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.haykalah.com/en/sectors/industrial-manufacturing-energy.html"/>
+  </url>
+  <url>
+    <loc>https://www.haykalah.com/en/sectors/healthcare-life-sciences.html</loc>
+    <lastmod>2026-10-12</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.haykalah.com/en/sectors/healthcare-life-sciences.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.haykalah.com/ar/sectors/healthcare-life-sciences.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.haykalah.com/en/sectors/healthcare-life-sciences.html"/>
+  </url>
+  <url>
+    <loc>https://www.haykalah.com/ar/sectors/healthcare-life-sciences.html</loc>
+    <lastmod>2026-10-12</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.haykalah.com/en/sectors/healthcare-life-sciences.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.haykalah.com/ar/sectors/healthcare-life-sciences.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.haykalah.com/en/sectors/healthcare-life-sciences.html"/>
+  </url>
+  <url>
+    <loc>https://www.haykalah.com/en/sectors/government-sovereign.html</loc>
+    <lastmod>2026-10-12</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.haykalah.com/en/sectors/government-sovereign.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.haykalah.com/ar/sectors/government-sovereign.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.haykalah.com/en/sectors/government-sovereign.html"/>
+  </url>
+  <url>
+    <loc>https://www.haykalah.com/ar/sectors/government-sovereign.html</loc>
+    <lastmod>2026-10-12</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.haykalah.com/en/sectors/government-sovereign.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.haykalah.com/ar/sectors/government-sovereign.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.haykalah.com/en/sectors/government-sovereign.html"/>
+  </url>
+  <url>
+    <loc>https://www.haykalah.com/en/sectors/transport-logistics.html</loc>
+    <lastmod>2026-10-12</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.haykalah.com/en/sectors/transport-logistics.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.haykalah.com/ar/sectors/transport-logistics.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.haykalah.com/en/sectors/transport-logistics.html"/>
+  </url>
+  <url>
+    <loc>https://www.haykalah.com/ar/sectors/transport-logistics.html</loc>
+    <lastmod>2026-10-12</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.haykalah.com/en/sectors/transport-logistics.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.haykalah.com/ar/sectors/transport-logistics.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.haykalah.com/en/sectors/transport-logistics.html"/>
+  </url>
+  <url>
+    <loc>https://www.haykalah.com/en/sectors/hajj-umrah-religious-economy.html</loc>
+    <lastmod>2026-10-12</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.haykalah.com/en/sectors/hajj-umrah-religious-economy.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.haykalah.com/ar/sectors/hajj-umrah-religious-economy.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.haykalah.com/en/sectors/hajj-umrah-religious-economy.html"/>
+  </url>
+  <url>
+    <loc>https://www.haykalah.com/ar/sectors/hajj-umrah-religious-economy.html</loc>
+    <lastmod>2026-10-12</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.haykalah.com/en/sectors/hajj-umrah-religious-economy.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.haykalah.com/ar/sectors/hajj-umrah-religious-economy.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.haykalah.com/en/sectors/hajj-umrah-religious-economy.html"/>
+  </url>
+  <url>
+    <loc>https://www.haykalah.com/en/sectors/education-human-capital.html</loc>
+    <lastmod>2026-10-12</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.haykalah.com/en/sectors/education-human-capital.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.haykalah.com/ar/sectors/education-human-capital.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.haykalah.com/en/sectors/education-human-capital.html"/>
+  </url>
+  <url>
+    <loc>https://www.haykalah.com/ar/sectors/education-human-capital.html</loc>
+    <lastmod>2026-10-12</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.haykalah.com/en/sectors/education-human-capital.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.haykalah.com/ar/sectors/education-human-capital.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.haykalah.com/en/sectors/education-human-capital.html"/>
+  </url>
+  <url>
+    <loc>https://www.haykalah.com/en/sectors/agritech-food.html</loc>
+    <lastmod>2026-10-12</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.haykalah.com/en/sectors/agritech-food.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.haykalah.com/ar/sectors/agritech-food.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.haykalah.com/en/sectors/agritech-food.html"/>
+  </url>
+  <url>
+    <loc>https://www.haykalah.com/ar/sectors/agritech-food.html</loc>
+    <lastmod>2026-10-12</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.haykalah.com/en/sectors/agritech-food.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.haykalah.com/ar/sectors/agritech-food.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.haykalah.com/en/sectors/agritech-food.html"/>
+  </url>
+  <url>
+    <loc>https://www.haykalah.com/en/contact.html</loc>
+    <lastmod>2026-10-12</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.haykalah.com/en/contact.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.haykalah.com/ar/contact.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.haykalah.com/en/contact.html"/>
+  </url>
+  <url>
+    <loc>https://www.haykalah.com/ar/contact.html</loc>
+    <lastmod>2026-10-12</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.haykalah.com/en/contact.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.haykalah.com/ar/contact.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.haykalah.com/en/contact.html"/>
+  </url>
+  <url>
+    <loc>https://www.haykalah.com/en/group.html</loc>
+    <lastmod>2026-10-12</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.haykalah.com/en/group.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.haykalah.com/ar/group.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.haykalah.com/en/group.html"/>
+  </url>
+  <url>
+    <loc>https://www.haykalah.com/ar/group.html</loc>
+    <lastmod>2026-10-12</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.haykalah.com/en/group.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.haykalah.com/ar/group.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.haykalah.com/en/group.html"/>
+  </url>
+  <url>
+    <loc>https://www.haykalah.com/en/regulatory-status.html</loc>
+    <lastmod>2026-10-12</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.haykalah.com/en/regulatory-status.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.haykalah.com/ar/regulatory-status.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.haykalah.com/en/regulatory-status.html"/>
+  </url>
+  <url>
+    <loc>https://www.haykalah.com/ar/regulatory-status.html</loc>
+    <lastmod>2026-10-12</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.haykalah.com/en/regulatory-status.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.haykalah.com/ar/regulatory-status.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.haykalah.com/en/regulatory-status.html"/>
+  </url>
+  <url>
+    <loc>https://www.haykalah.com/en/privacy.html</loc>
+    <lastmod>2026-10-12</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.haykalah.com/en/privacy.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.haykalah.com/ar/privacy.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.haykalah.com/en/privacy.html"/>
+  </url>
+  <url>
+    <loc>https://www.haykalah.com/ar/privacy.html</loc>
+    <lastmod>2026-10-12</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.haykalah.com/en/privacy.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.haykalah.com/ar/privacy.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.haykalah.com/en/privacy.html"/>
+  </url>
+  <url>
+    <loc>https://www.haykalah.com/en/terms.html</loc>
+    <lastmod>2026-10-12</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.haykalah.com/en/terms.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.haykalah.com/ar/terms.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.haykalah.com/en/terms.html"/>
+  </url>
+  <url>
+    <loc>https://www.haykalah.com/ar/terms.html</loc>
+    <lastmod>2026-10-12</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.haykalah.com/en/terms.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.haykalah.com/ar/terms.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.haykalah.com/en/terms.html"/>
+  </url>
+  <url>
+    <loc>https://www.haykalah.com/en/fraud-awareness.html</loc>
+    <lastmod>2026-10-12</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.haykalah.com/en/fraud-awareness.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.haykalah.com/ar/fraud-awareness.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.haykalah.com/en/fraud-awareness.html"/>
+  </url>
+  <url>
+    <loc>https://www.haykalah.com/ar/fraud-awareness.html</loc>
+    <lastmod>2026-10-12</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.haykalah.com/en/fraud-awareness.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.haykalah.com/ar/fraud-awareness.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.haykalah.com/en/fraud-awareness.html"/>
+  </url>
+  <url>
+    <loc>https://www.haykalah.com/en/accessibility.html</loc>
+    <lastmod>2026-10-12</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.haykalah.com/en/accessibility.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.haykalah.com/ar/accessibility.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.haykalah.com/en/accessibility.html"/>
+  </url>
+  <url>
+    <loc>https://www.haykalah.com/ar/accessibility.html</loc>
+    <lastmod>2026-10-12</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.haykalah.com/en/accessibility.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.haykalah.com/ar/accessibility.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.haykalah.com/en/accessibility.html"/>
+  </url>
+  <url>
+    <loc>https://www.haykalah.com/en/knowledge.html</loc>
+    <lastmod>2026-10-12</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.haykalah.com/en/knowledge.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.haykalah.com/ar/knowledge.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.haykalah.com/en/knowledge.html"/>
+  </url>
+  <url>
+    <loc>https://www.haykalah.com/ar/knowledge.html</loc>
+    <lastmod>2026-10-12</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.haykalah.com/en/knowledge.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.haykalah.com/ar/knowledge.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.haykalah.com/en/knowledge.html"/>
+  </url>
+  <url>
+    <loc>https://www.haykalah.com/en/insights.html</loc>
+    <lastmod>2026-10-12</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.haykalah.com/en/insights.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.haykalah.com/ar/insights.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.haykalah.com/en/insights.html"/>
+  </url>
+  <url>
+    <loc>https://www.haykalah.com/ar/insights.html</loc>
+    <lastmod>2026-10-12</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.haykalah.com/en/insights.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.haykalah.com/ar/insights.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.haykalah.com/en/insights.html"/>
+  </url>
+  <url>
+    <loc>https://www.haykalah.com/en/finder.html</loc>
+    <lastmod>2026-10-12</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.haykalah.com/en/finder.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.haykalah.com/ar/finder.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.haykalah.com/en/finder.html"/>
+  </url>
+  <url>
+    <loc>https://www.haykalah.com/ar/finder.html</loc>
+    <lastmod>2026-10-12</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.haykalah.com/en/finder.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.haykalah.com/ar/finder.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.haykalah.com/en/finder.html"/>
+  </url>
+  <url>
+    <loc>https://www.haykalah.com/en/readiness-check.html</loc>
+    <lastmod>2026-10-12</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.haykalah.com/en/readiness-check.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.haykalah.com/ar/readiness-check.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.haykalah.com/en/readiness-check.html"/>
+  </url>
+  <url>
+    <loc>https://www.haykalah.com/ar/readiness-check.html</loc>
+    <lastmod>2026-10-12</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.haykalah.com/en/readiness-check.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.haykalah.com/ar/readiness-check.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.haykalah.com/en/readiness-check.html"/>
+  </url>
+  <url>
+    <loc>https://www.haykalah.com/en/ask.html</loc>
+    <lastmod>2026-10-12</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.haykalah.com/en/ask.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.haykalah.com/ar/ask.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.haykalah.com/en/ask.html"/>
+  </url>
+  <url>
+    <loc>https://www.haykalah.com/ar/ask.html</loc>
+    <lastmod>2026-10-12</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.haykalah.com/en/ask.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.haykalah.com/ar/ask.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.haykalah.com/en/ask.html"/>
+  </url>
+  <url>
+    <loc>https://www.haykalah.com/en/explainers/stadium-sukuk.html</loc>
+    <lastmod>2026-10-12</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.haykalah.com/en/explainers/stadium-sukuk.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.haykalah.com/ar/explainers/stadium-sukuk.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.haykalah.com/en/explainers/stadium-sukuk.html"/>
+  </url>
+  <url>
+    <loc>https://www.haykalah.com/ar/explainers/stadium-sukuk.html</loc>
+    <lastmod>2026-10-12</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.haykalah.com/en/explainers/stadium-sukuk.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.haykalah.com/ar/explainers/stadium-sukuk.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.haykalah.com/en/explainers/stadium-sukuk.html"/>
+  </url>
+  <url>
+    <loc>https://www.haykalah.com/en/explainers/asset-monetization-engine.html</loc>
+    <lastmod>2026-10-12</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.haykalah.com/en/explainers/asset-monetization-engine.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.haykalah.com/ar/explainers/asset-monetization-engine.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.haykalah.com/en/explainers/asset-monetization-engine.html"/>
+  </url>
+  <url>
+    <loc>https://www.haykalah.com/ar/explainers/asset-monetization-engine.html</loc>
+    <lastmod>2026-10-12</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.haykalah.com/en/explainers/asset-monetization-engine.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.haykalah.com/ar/explainers/asset-monetization-engine.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.haykalah.com/en/explainers/asset-monetization-engine.html"/>
+  </url>
+  <url>
+    <loc>https://www.haykalah.com/en/explainers/sukuk-al-ijara.html</loc>
+    <lastmod>2026-10-12</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.haykalah.com/en/explainers/sukuk-al-ijara.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.haykalah.com/ar/explainers/sukuk-al-ijara.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.haykalah.com/en/explainers/sukuk-al-ijara.html"/>
+  </url>
+  <url>
+    <loc>https://www.haykalah.com/ar/explainers/sukuk-al-ijara.html</loc>
+    <lastmod>2026-10-12</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.haykalah.com/en/explainers/sukuk-al-ijara.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.haykalah.com/ar/explainers/sukuk-al-ijara.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.haykalah.com/en/explainers/sukuk-al-ijara.html"/>
+  </url>
+  <url>
+    <loc>https://www.haykalah.com/en/knowledge/sukuk.html</loc>
+    <lastmod>2026-10-12</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.haykalah.com/en/knowledge/sukuk.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.haykalah.com/ar/knowledge/sukuk.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.haykalah.com/en/knowledge/sukuk.html"/>
+  </url>
+  <url>
+    <loc>https://www.haykalah.com/ar/knowledge/sukuk.html</loc>
+    <lastmod>2026-10-12</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.haykalah.com/en/knowledge/sukuk.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.haykalah.com/ar/knowledge/sukuk.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.haykalah.com/en/knowledge/sukuk.html"/>
+  </url>
+  <url>
+    <loc>https://www.haykalah.com/en/knowledge/ijara.html</loc>
+    <lastmod>2026-10-12</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.haykalah.com/en/knowledge/ijara.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.haykalah.com/ar/knowledge/ijara.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.haykalah.com/en/knowledge/ijara.html"/>
+  </url>
+  <url>
+    <loc>https://www.haykalah.com/ar/knowledge/ijara.html</loc>
+    <lastmod>2026-10-12</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.haykalah.com/en/knowledge/ijara.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.haykalah.com/ar/knowledge/ijara.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.haykalah.com/en/knowledge/ijara.html"/>
+  </url>
+  <url>
+    <loc>https://www.haykalah.com/en/knowledge/istisnaa.html</loc>
+    <lastmod>2026-10-12</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.haykalah.com/en/knowledge/istisnaa.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.haykalah.com/ar/knowledge/istisnaa.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.haykalah.com/en/knowledge/istisnaa.html"/>
+  </url>
+  <url>
+    <loc>https://www.haykalah.com/ar/knowledge/istisnaa.html</loc>
+    <lastmod>2026-10-12</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.haykalah.com/en/knowledge/istisnaa.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.haykalah.com/ar/knowledge/istisnaa.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.haykalah.com/en/knowledge/istisnaa.html"/>
+  </url>
+  <url>
+    <loc>https://www.haykalah.com/en/knowledge/murabaha.html</loc>
+    <lastmod>2026-10-12</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.haykalah.com/en/knowledge/murabaha.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.haykalah.com/ar/knowledge/murabaha.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.haykalah.com/en/knowledge/murabaha.html"/>
+  </url>
+  <url>
+    <loc>https://www.haykalah.com/ar/knowledge/murabaha.html</loc>
+    <lastmod>2026-10-12</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.haykalah.com/en/knowledge/murabaha.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.haykalah.com/ar/knowledge/murabaha.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.haykalah.com/en/knowledge/murabaha.html"/>
+  </url>
+  <url>
+    <loc>https://www.haykalah.com/en/knowledge/musharaka.html</loc>
+    <lastmod>2026-10-12</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.haykalah.com/en/knowledge/musharaka.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.haykalah.com/ar/knowledge/musharaka.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.haykalah.com/en/knowledge/musharaka.html"/>
+  </url>
+  <url>
+    <loc>https://www.haykalah.com/ar/knowledge/musharaka.html</loc>
+    <lastmod>2026-10-12</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.haykalah.com/en/knowledge/musharaka.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.haykalah.com/ar/knowledge/musharaka.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.haykalah.com/en/knowledge/musharaka.html"/>
+  </url>
+  <url>
+    <loc>https://www.haykalah.com/en/knowledge/wakala.html</loc>
+    <lastmod>2026-10-12</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.haykalah.com/en/knowledge/wakala.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.haykalah.com/ar/knowledge/wakala.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.haykalah.com/en/knowledge/wakala.html"/>
+  </url>
+  <url>
+    <loc>https://www.haykalah.com/ar/knowledge/wakala.html</loc>
+    <lastmod>2026-10-12</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.haykalah.com/en/knowledge/wakala.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.haykalah.com/ar/knowledge/wakala.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.haykalah.com/en/knowledge/wakala.html"/>
+  </url>
+  <url>
+    <loc>https://www.haykalah.com/en/knowledge/jv-spv.html</loc>
+    <lastmod>2026-10-12</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.haykalah.com/en/knowledge/jv-spv.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.haykalah.com/ar/knowledge/jv-spv.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.haykalah.com/en/knowledge/jv-spv.html"/>
+  </url>
+  <url>
+    <loc>https://www.haykalah.com/ar/knowledge/jv-spv.html</loc>
+    <lastmod>2026-10-12</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.haykalah.com/en/knowledge/jv-spv.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.haykalah.com/ar/knowledge/jv-spv.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.haykalah.com/en/knowledge/jv-spv.html"/>
+  </url>
+  <url>
+    <loc>https://www.haykalah.com/en/knowledge/devco-projectco.html</loc>
+    <lastmod>2026-10-12</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.haykalah.com/en/knowledge/devco-projectco.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.haykalah.com/ar/knowledge/devco-projectco.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.haykalah.com/en/knowledge/devco-projectco.html"/>
+  </url>
+  <url>
+    <loc>https://www.haykalah.com/ar/knowledge/devco-projectco.html</loc>
+    <lastmod>2026-10-12</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.haykalah.com/en/knowledge/devco-projectco.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.haykalah.com/ar/knowledge/devco-projectco.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.haykalah.com/en/knowledge/devco-projectco.html"/>
+  </url>
+  <url>
+    <loc>https://www.haykalah.com/en/knowledge/holding-company.html</loc>
+    <lastmod>2026-10-12</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.haykalah.com/en/knowledge/holding-company.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.haykalah.com/ar/knowledge/holding-company.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.haykalah.com/en/knowledge/holding-company.html"/>
+  </url>
+  <url>
+    <loc>https://www.haykalah.com/ar/knowledge/holding-company.html</loc>
+    <lastmod>2026-10-12</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.haykalah.com/en/knowledge/holding-company.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.haykalah.com/ar/knowledge/holding-company.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.haykalah.com/en/knowledge/holding-company.html"/>
+  </url>
+  <url>
+    <loc>https://www.haykalah.com/en/knowledge/real-estate-fund.html</loc>
+    <lastmod>2026-10-12</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.haykalah.com/en/knowledge/real-estate-fund.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.haykalah.com/ar/knowledge/real-estate-fund.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.haykalah.com/en/knowledge/real-estate-fund.html"/>
+  </url>
+  <url>
+    <loc>https://www.haykalah.com/ar/knowledge/real-estate-fund.html</loc>
+    <lastmod>2026-10-12</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.haykalah.com/en/knowledge/real-estate-fund.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.haykalah.com/ar/knowledge/real-estate-fund.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.haykalah.com/en/knowledge/real-estate-fund.html"/>
+  </url>
+  <url>
+    <loc>https://www.haykalah.com/en/knowledge/off-balance-sheet-vehicle.html</loc>
+    <lastmod>2026-10-12</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.haykalah.com/en/knowledge/off-balance-sheet-vehicle.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.haykalah.com/ar/knowledge/off-balance-sheet-vehicle.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.haykalah.com/en/knowledge/off-balance-sheet-vehicle.html"/>
+  </url>
+  <url>
+    <loc>https://www.haykalah.com/ar/knowledge/off-balance-sheet-vehicle.html</loc>
+    <lastmod>2026-10-12</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.haykalah.com/en/knowledge/off-balance-sheet-vehicle.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.haykalah.com/ar/knowledge/off-balance-sheet-vehicle.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.haykalah.com/en/knowledge/off-balance-sheet-vehicle.html"/>
+  </url>
+  <url>
+    <loc>https://www.haykalah.com/en/knowledge/securitization.html</loc>
+    <lastmod>2026-10-12</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.haykalah.com/en/knowledge/securitization.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.haykalah.com/ar/knowledge/securitization.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.haykalah.com/en/knowledge/securitization.html"/>
+  </url>
+  <url>
+    <loc>https://www.haykalah.com/ar/knowledge/securitization.html</loc>
+    <lastmod>2026-10-12</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.haykalah.com/en/knowledge/securitization.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.haykalah.com/ar/knowledge/securitization.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.haykalah.com/en/knowledge/securitization.html"/>
+  </url>
+  <url>
+    <loc>https://www.haykalah.com/en/knowledge/tokenization.html</loc>
+    <lastmod>2026-10-12</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.haykalah.com/en/knowledge/tokenization.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.haykalah.com/ar/knowledge/tokenization.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.haykalah.com/en/knowledge/tokenization.html"/>
+  </url>
+  <url>
+    <loc>https://www.haykalah.com/ar/knowledge/tokenization.html</loc>
+    <lastmod>2026-10-12</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.haykalah.com/en/knowledge/tokenization.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.haykalah.com/ar/knowledge/tokenization.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.haykalah.com/en/knowledge/tokenization.html"/>
+  </url>
+  <url>
+    <loc>https://www.haykalah.com/en/knowledge/waqf.html</loc>
+    <lastmod>2026-10-12</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.haykalah.com/en/knowledge/waqf.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.haykalah.com/ar/knowledge/waqf.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.haykalah.com/en/knowledge/waqf.html"/>
+  </url>
+  <url>
+    <loc>https://www.haykalah.com/ar/knowledge/waqf.html</loc>
+    <lastmod>2026-10-12</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.haykalah.com/en/knowledge/waqf.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.haykalah.com/ar/knowledge/waqf.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.haykalah.com/en/knowledge/waqf.html"/>
+  </url>
+  <url>
+    <loc>https://www.haykalah.com/en/knowledge/nazir.html</loc>
+    <lastmod>2026-10-12</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.haykalah.com/en/knowledge/nazir.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.haykalah.com/ar/knowledge/nazir.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.haykalah.com/en/knowledge/nazir.html"/>
+  </url>
+  <url>
+    <loc>https://www.haykalah.com/ar/knowledge/nazir.html</loc>
+    <lastmod>2026-10-12</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.haykalah.com/en/knowledge/nazir.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.haykalah.com/ar/knowledge/nazir.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.haykalah.com/en/knowledge/nazir.html"/>
+  </url>
+  <url>
+    <loc>https://www.haykalah.com/en/knowledge/musataha.html</loc>
+    <lastmod>2026-10-12</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.haykalah.com/en/knowledge/musataha.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.haykalah.com/ar/knowledge/musataha.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.haykalah.com/en/knowledge/musataha.html"/>
+  </url>
+  <url>
+    <loc>https://www.haykalah.com/ar/knowledge/musataha.html</loc>
+    <lastmod>2026-10-12</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.haykalah.com/en/knowledge/musataha.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.haykalah.com/ar/knowledge/musataha.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.haykalah.com/en/knowledge/musataha.html"/>
+  </url>
+  <url>
+    <loc>https://www.haykalah.com/en/knowledge/in-kind-contribution.html</loc>
+    <lastmod>2026-10-12</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.haykalah.com/en/knowledge/in-kind-contribution.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.haykalah.com/ar/knowledge/in-kind-contribution.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.haykalah.com/en/knowledge/in-kind-contribution.html"/>
+  </url>
+  <url>
+    <loc>https://www.haykalah.com/ar/knowledge/in-kind-contribution.html</loc>
+    <lastmod>2026-10-12</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.haykalah.com/en/knowledge/in-kind-contribution.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.haykalah.com/ar/knowledge/in-kind-contribution.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.haykalah.com/en/knowledge/in-kind-contribution.html"/>
+  </url>
+  <url>
+    <loc>https://www.haykalah.com/en/knowledge/concession.html</loc>
+    <lastmod>2026-10-12</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.haykalah.com/en/knowledge/concession.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.haykalah.com/ar/knowledge/concession.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.haykalah.com/en/knowledge/concession.html"/>
+  </url>
+  <url>
+    <loc>https://www.haykalah.com/ar/knowledge/concession.html</loc>
+    <lastmod>2026-10-12</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.haykalah.com/en/knowledge/concession.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.haykalah.com/ar/knowledge/concession.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.haykalah.com/en/knowledge/concession.html"/>
+  </url>
+  <url>
+    <loc>https://www.haykalah.com/en/knowledge/revenue-share.html</loc>
+    <lastmod>2026-10-12</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.haykalah.com/en/knowledge/revenue-share.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.haykalah.com/ar/knowledge/revenue-share.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.haykalah.com/en/knowledge/revenue-share.html"/>
+  </url>
+  <url>
+    <loc>https://www.haykalah.com/ar/knowledge/revenue-share.html</loc>
+    <lastmod>2026-10-12</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.haykalah.com/en/knowledge/revenue-share.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.haykalah.com/ar/knowledge/revenue-share.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.haykalah.com/en/knowledge/revenue-share.html"/>
+  </url>
+  <url>
+    <loc>https://www.haykalah.com/en/knowledge/capital-recycling.html</loc>
+    <lastmod>2026-10-12</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.haykalah.com/en/knowledge/capital-recycling.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.haykalah.com/ar/knowledge/capital-recycling.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.haykalah.com/en/knowledge/capital-recycling.html"/>
+  </url>
+  <url>
+    <loc>https://www.haykalah.com/ar/knowledge/capital-recycling.html</loc>
+    <lastmod>2026-10-12</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.haykalah.com/en/knowledge/capital-recycling.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.haykalah.com/ar/knowledge/capital-recycling.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.haykalah.com/en/knowledge/capital-recycling.html"/>
+  </url>
+  <url>
+    <loc>https://www.haykalah.com/en/knowledge/mashaer.html</loc>
+    <lastmod>2026-10-12</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.haykalah.com/en/knowledge/mashaer.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.haykalah.com/ar/knowledge/mashaer.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.haykalah.com/en/knowledge/mashaer.html"/>
+  </url>
+  <url>
+    <loc>https://www.haykalah.com/ar/knowledge/mashaer.html</loc>
+    <lastmod>2026-10-12</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.haykalah.com/en/knowledge/mashaer.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.haykalah.com/ar/knowledge/mashaer.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.haykalah.com/en/knowledge/mashaer.html"/>
+  </url>
+  <url>
+    <loc>https://www.haykalah.com/en/knowledge/deliverable-codes.html</loc>
+    <lastmod>2026-10-12</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.haykalah.com/en/knowledge/deliverable-codes.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.haykalah.com/ar/knowledge/deliverable-codes.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.haykalah.com/en/knowledge/deliverable-codes.html"/>
+  </url>
+  <url>
+    <loc>https://www.haykalah.com/ar/knowledge/deliverable-codes.html</loc>
+    <lastmod>2026-10-12</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.haykalah.com/en/knowledge/deliverable-codes.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.haykalah.com/ar/knowledge/deliverable-codes.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.haykalah.com/en/knowledge/deliverable-codes.html"/>
+  </url>
+  <url>
+    <loc>https://www.haykalah.com/en/knowledge/model-of-record.html</loc>
+    <lastmod>2026-10-12</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.haykalah.com/en/knowledge/model-of-record.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.haykalah.com/ar/knowledge/model-of-record.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.haykalah.com/en/knowledge/model-of-record.html"/>
+  </url>
+  <url>
+    <loc>https://www.haykalah.com/ar/knowledge/model-of-record.html</loc>
+    <lastmod>2026-10-12</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.haykalah.com/en/knowledge/model-of-record.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.haykalah.com/ar/knowledge/model-of-record.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.haykalah.com/en/knowledge/model-of-record.html"/>
+  </url>
+  <url>
+    <loc>https://www.haykalah.com/en/knowledge/data-room.html</loc>
+    <lastmod>2026-10-12</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.haykalah.com/en/knowledge/data-room.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.haykalah.com/ar/knowledge/data-room.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.haykalah.com/en/knowledge/data-room.html"/>
+  </url>
+  <url>
+    <loc>https://www.haykalah.com/ar/knowledge/data-room.html</loc>
+    <lastmod>2026-10-12</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.haykalah.com/en/knowledge/data-room.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.haykalah.com/ar/knowledge/data-room.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.haykalah.com/en/knowledge/data-room.html"/>
+  </url>
+  <url>
+    <loc>https://www.haykalah.com/en/knowledge/hoam.html</loc>
+    <lastmod>2026-10-12</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.haykalah.com/en/knowledge/hoam.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.haykalah.com/ar/knowledge/hoam.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.haykalah.com/en/knowledge/hoam.html"/>
+  </url>
+  <url>
+    <loc>https://www.haykalah.com/ar/knowledge/hoam.html</loc>
+    <lastmod>2026-10-12</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.haykalah.com/en/knowledge/hoam.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.haykalah.com/ar/knowledge/hoam.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.haykalah.com/en/knowledge/hoam.html"/>
+  </url>
+  <url>
+    <loc>https://www.haykalah.com/en/knowledge/equity-for-build.html</loc>
+    <lastmod>2026-10-12</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.haykalah.com/en/knowledge/equity-for-build.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.haykalah.com/ar/knowledge/equity-for-build.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.haykalah.com/en/knowledge/equity-for-build.html"/>
+  </url>
+  <url>
+    <loc>https://www.haykalah.com/ar/knowledge/equity-for-build.html</loc>
+    <lastmod>2026-10-12</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.haykalah.com/en/knowledge/equity-for-build.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.haykalah.com/ar/knowledge/equity-for-build.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.haykalah.com/en/knowledge/equity-for-build.html"/>
+  </url>
+  <url>
+    <loc>https://www.haykalah.com/en/knowledge/vesting.html</loc>
+    <lastmod>2026-10-12</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.haykalah.com/en/knowledge/vesting.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.haykalah.com/ar/knowledge/vesting.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.haykalah.com/en/knowledge/vesting.html"/>
+  </url>
+  <url>
+    <loc>https://www.haykalah.com/ar/knowledge/vesting.html</loc>
+    <lastmod>2026-10-12</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.haykalah.com/en/knowledge/vesting.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.haykalah.com/ar/knowledge/vesting.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.haykalah.com/en/knowledge/vesting.html"/>
+  </url>
+  <url>
+    <loc>https://www.haykalah.com/en/knowledge/shareholders-agreement.html</loc>
+    <lastmod>2026-10-12</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.haykalah.com/en/knowledge/shareholders-agreement.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.haykalah.com/ar/knowledge/shareholders-agreement.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.haykalah.com/en/knowledge/shareholders-agreement.html"/>
+  </url>
+  <url>
+    <loc>https://www.haykalah.com/ar/knowledge/shareholders-agreement.html</loc>
+    <lastmod>2026-10-12</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.haykalah.com/en/knowledge/shareholders-agreement.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.haykalah.com/ar/knowledge/shareholders-agreement.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.haykalah.com/en/knowledge/shareholders-agreement.html"/>
+  </url>
+  <url>
+    <loc>https://www.haykalah.com/en/knowledge/pdpl.html</loc>
+    <lastmod>2026-10-12</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.haykalah.com/en/knowledge/pdpl.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.haykalah.com/ar/knowledge/pdpl.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.haykalah.com/en/knowledge/pdpl.html"/>
+  </url>
+  <url>
+    <loc>https://www.haykalah.com/ar/knowledge/pdpl.html</loc>
+    <lastmod>2026-10-12</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.haykalah.com/en/knowledge/pdpl.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.haykalah.com/ar/knowledge/pdpl.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.haykalah.com/en/knowledge/pdpl.html"/>
+  </url>
+  <url>
+    <loc>https://www.haykalah.com/en/knowledge/psp-law.html</loc>
+    <lastmod>2026-10-12</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.haykalah.com/en/knowledge/psp-law.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.haykalah.com/ar/knowledge/psp-law.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.haykalah.com/en/knowledge/psp-law.html"/>
+  </url>
+  <url>
+    <loc>https://www.haykalah.com/ar/knowledge/psp-law.html</loc>
+    <lastmod>2026-10-12</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.haykalah.com/en/knowledge/psp-law.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.haykalah.com/ar/knowledge/psp-law.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.haykalah.com/en/knowledge/psp-law.html"/>
+  </url>
+  <url>
+    <loc>https://www.haykalah.com/en/knowledge/innovation.html</loc>
+    <lastmod>2026-10-12</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.haykalah.com/en/knowledge/innovation.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.haykalah.com/ar/knowledge/innovation.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.haykalah.com/en/knowledge/innovation.html"/>
+  </url>
+  <url>
+    <loc>https://www.haykalah.com/ar/knowledge/innovation.html</loc>
+    <lastmod>2026-10-12</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.haykalah.com/en/knowledge/innovation.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.haykalah.com/ar/knowledge/innovation.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.haykalah.com/en/knowledge/innovation.html"/>
+  </url>
+  <url>
+    <loc>https://www.haykalah.com/en/knowledge/monetization.html</loc>
+    <lastmod>2026-10-12</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.haykalah.com/en/knowledge/monetization.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.haykalah.com/ar/knowledge/monetization.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.haykalah.com/en/knowledge/monetization.html"/>
+  </url>
+  <url>
+    <loc>https://www.haykalah.com/ar/knowledge/monetization.html</loc>
+    <lastmod>2026-10-12</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.haykalah.com/en/knowledge/monetization.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.haykalah.com/ar/knowledge/monetization.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.haykalah.com/en/knowledge/monetization.html"/>
+  </url>
+  <url>
+    <loc>https://www.haykalah.com/en/knowledge/optimization.html</loc>
+    <lastmod>2026-10-12</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.haykalah.com/en/knowledge/optimization.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.haykalah.com/ar/knowledge/optimization.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.haykalah.com/en/knowledge/optimization.html"/>
+  </url>
+  <url>
+    <loc>https://www.haykalah.com/ar/knowledge/optimization.html</loc>
+    <lastmod>2026-10-12</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.haykalah.com/en/knowledge/optimization.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.haykalah.com/ar/knowledge/optimization.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.haykalah.com/en/knowledge/optimization.html"/>
+  </url>
+  <url>
+    <loc>https://www.haykalah.com/en/knowledge/automation.html</loc>
+    <lastmod>2026-10-12</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.haykalah.com/en/knowledge/automation.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.haykalah.com/ar/knowledge/automation.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.haykalah.com/en/knowledge/automation.html"/>
+  </url>
+  <url>
+    <loc>https://www.haykalah.com/ar/knowledge/automation.html</loc>
+    <lastmod>2026-10-12</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.haykalah.com/en/knowledge/automation.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.haykalah.com/ar/knowledge/automation.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.haykalah.com/en/knowledge/automation.html"/>
+  </url>
+  <url>
+    <loc>https://www.haykalah.com/en/knowledge/transformation.html</loc>
+    <lastmod>2026-10-12</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.haykalah.com/en/knowledge/transformation.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.haykalah.com/ar/knowledge/transformation.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.haykalah.com/en/knowledge/transformation.html"/>
+  </url>
+  <url>
+    <loc>https://www.haykalah.com/ar/knowledge/transformation.html</loc>
+    <lastmod>2026-10-12</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.haykalah.com/en/knowledge/transformation.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.haykalah.com/ar/knowledge/transformation.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.haykalah.com/en/knowledge/transformation.html"/>
+  </url>
+  <url>
+    <loc>https://www.haykalah.com/en/knowledge/commercialization.html</loc>
+    <lastmod>2026-10-12</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.haykalah.com/en/knowledge/commercialization.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.haykalah.com/ar/knowledge/commercialization.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.haykalah.com/en/knowledge/commercialization.html"/>
+  </url>
+  <url>
+    <loc>https://www.haykalah.com/ar/knowledge/commercialization.html</loc>
+    <lastmod>2026-10-12</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.haykalah.com/en/knowledge/commercialization.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://www.haykalah.com/ar/knowledge/commercialization.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.haykalah.com/en/knowledge/commercialization.html"/>
+  </url>
+</urlset>

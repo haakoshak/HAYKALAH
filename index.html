@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>HAYKALAH | هيكلة</title>
+<meta name="description" content="HAYKALAH, a Saudi structuring house in Riyadh and Jeddah since 2004. Choose English or Arabic.">
+<meta name="robots" content="noindex, follow">
+<link rel="alternate" hreflang="en" href="https://www.haykalah.com/en/">
+<link rel="alternate" hreflang="ar" href="https://www.haykalah.com/ar/">
+<link rel="alternate" hreflang="x-default" href="https://www.haykalah.com/en/">
+<link rel="icon" href="favicon.ico" sizes="48x48">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<meta name="theme-color" content="#1c1840">
+<meta name="color-scheme" content="dark">
+<script>
+/* Language gateway. On Netlify, _redirects normally answers "/" first; this page covers previews and any host without it.
+   Order: the visitor's remembered choice, then an Arabic browser language, then English. */
+(function () {
+  var l = null;
+  try { l = window.localStorage.getItem('hk-lang'); } catch (e) { /* storage blocked */ }
+  if (l !== 'ar' && l !== 'en') {
+    l = String(navigator.language || '').toLowerCase().indexOf('ar') === 0 ? 'ar' : 'en';
+  }
+  window.location.replace(l + '/' + window.location.search + window.location.hash);
+})();
+</script>
+<style>
+  html { background: #1c1840; color: #f4f3fa; color-scheme: dark; }
+  body { margin: 0; min-height: 100vh; display: grid; place-items: center; font: 400 18px/1.5 Calibri, Carlito, "Segoe UI", Arial, sans-serif; }
+  main { padding: 32px 20px; text-align: center; }
+  img { display: block; height: 28px; width: auto; margin: 0 auto 32px; }
+  p { margin: 0 0 20px; color: #bdb6e0; }
+  ul { display: flex; gap: 16px; justify-content: center; margin: 0; padding: 0; list-style: none; }
+  a { display: inline-flex; align-items: center; min-height: 48px; padding: 0 24px; border: 1px solid #9c93cf; border-radius: 2px; color: #f4f3fa; text-decoration: none; font-weight: 700; }
+  a:focus-visible { outline: none; box-shadow: 0 0 0 2px #1c1840, 0 0 0 4px #d6d0f0; }
+  [lang="ar"] { font-family: "Noto Sans Arabic", Tahoma, sans-serif; }
+</style>
+</head>
+<body>
+<main>
+  <img src="img/brand/haykalah-wordmark-knockout.svg" alt="HAYKALAH" width="140" height="28">
+  <p>Choose your language · <span lang="ar" dir="rtl">اختر اللغة</span></p>
+  <ul>
+    <li><a href="en/" hreflang="en">English</a></li>
+    <li><a href="ar/" hreflang="ar" lang="ar" dir="rtl">العربية</a></li>
+  </ul>
+</main>
+</body>
+</html>

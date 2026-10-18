@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Page not found · HAYKALAH | الصفحة غير موجودة</title>
+<meta name="robots" content="noindex">
+<link rel="icon" href="/favicon.ico" sizes="48x48">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<meta name="theme-color" content="#1c1840">
+<meta name="color-scheme" content="dark">
+<!-- Served by Netlify (and the preview) at whatever missing path was requested, so every URL here is root-absolute. -->
+<link rel="stylesheet" href="/css/haykalah.css?v=20">
+<style>
+  .nf-header { border-bottom: 1px solid var(--line); }
+  .nf-header .hd { justify-content: space-between; }
+  .nf { position: relative; overflow: hidden; padding-block: clamp(64px, 9vw, 128px) clamp(180px, 22vw, 300px); }
+  .nf-grid { display: grid; grid-template-columns: minmax(0, 1fr); gap: 56px; }
+  .nf-grid > div + div { padding-top: 48px; border-top: 1px solid var(--line); }
+  .nf .eyebrow { margin-bottom: 18px; }
+  .nf h1, .nf h2 { max-width: 16ch; }
+  .nf h1 { font: 700 clamp(32px, 1.2rem + 2.6vw, 52px)/1.1 var(--font-serif); letter-spacing: -0.015em; color: var(--ink-title); }
+  .nf h2:lang(ar) { font: 700 clamp(28px, 1rem + 2.2vw, 44px)/1.45 var(--font-arabic); color: var(--ink-title); }
+  .nf .lede { margin-top: 18px; max-width: 46ch; }
+  .nf .ctas { margin-top: 32px; }
+  .nf .skyline-nf { inset-inline: 0; bottom: 0; width: 100%; height: clamp(150px, 20vw, 280px); object-fit: cover; object-position: right bottom; opacity: 0.2; }
+  @media (min-width: 900px) {
+    .nf-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 64px; }
+    .nf-grid > div + div { padding-top: 0; border-top: 0; padding-inline-start: 64px; border-inline-start: 1px solid var(--line); }
+  }
+</style>
+<script>
+/* Old haykalah.com addresses with a trailing slash or other variants: GitHub Pages has no redirects, so the 404 page forwards them. */
+(function () {
+  var p = location.pathname.toLowerCase().replace(//+$/, '').replace(/.html$/, '');
+  var m = { services: 'expertise', 'contact-us': 'contact', 'privacy-policy': 'privacy', 'terms-conditions': 'terms' };
+  var r = /^/(en|ar)/([a-z-]+)$/.exec(p);
+  if (r && m[r[2]]) location.replace('/' + r[1] + '/' + m[r[2]] + '.html');
+})();
+</script>
+</head>
+<body>
+<header class="site-header nf-header">
+  <div class="wrap hd">
+    <a class="hd-logo" href="/"><img src="/img/brand/haykalah-wordmark-knockout.svg" alt="HAYKALAH, home" width="140" height="28"></a>
+  </div>
+</header>
+<main id="main" class="nf">
+  <div class="wrap nf-grid">
+    <div>
+      <p class="eyebrow">Error 404</p>
+      <h1>This page has moved or does not exist.</h1>
+      <p class="lede">The address may come from our previous website. Start again from the homepage, or tell us what you were looking for.</p>
+      <div class="ctas">
+        <a class="btn btn-primary" href="/en/">English homepage</a>
+        <a class="btn btn-secondary" href="/en/#consultation">Contact HAYKALAH</a>
+      </div>
+    </div>
+    <div lang="ar" dir="rtl">
+      <p class="eyebrow">خطأ <bdi>404</bdi></p>
+      <h2>هذه الصفحة نُقلت أو غير موجودة.</h2>
+      <p class="lede">قد يكون العنوان من موقعنا السابق. ابدأ من جديد من الصفحة الرئيسية، أو أخبرنا عمّا تبحث عنه.</p>
+      <div class="ctas">
+        <a class="btn btn-primary" href="/ar/">الصفحة الرئيسية بالعربية</a>
+        <a class="btn btn-secondary" href="/ar/#consultation">تواصل مع هيكلة</a>
+      </div>
+    </div>
+  </div>
+  <img class="skyline skyline-nf" src="/img/brand/riyadh-skyline.svg" alt="" width="1440" height="480">
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <p class="ft-id">HAYKALAH Financial Advisory · CR 7014123751 · Riyadh · Jeddah · Kingdom of Saudi Arabia</p>
+    <p class="ft-id">Regulated activities are executed through appropriately licensed partners.</p>
+    <p class="ft-id" lang="ar" dir="rtl">تُنفَّذ الأنشطة الخاضعة للتنظيم من خلال شركاء مرخّصين على النحو المناسب.</p>
+  </div>
+</footer>
+</body>
+</html>
