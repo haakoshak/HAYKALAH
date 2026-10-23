@@ -394,8 +394,23 @@
       }
     });
   }
-  function showBanner() { if (banner) banner.classList.add('is-visible'); }
-  function hideBanner() { if (banner) banner.classList.remove('is-visible'); }
+  // The stacking cards stick above the banner while it shows, so they re-measure (on resize) when it appears or goes
+  function showBanner() { if (banner) { banner.classList.add('is-visible'); window.dispatchEvent(new Event('resize')); } }
+  function hideBanner() { if (banner) { banner.classList.remove('is-visible'); window.dispatchEvent(new Event('resize')); } }
+
+  // Focus not obscured (WCAG 2.2 2.4.11): a focused element must not sit under the sticky header or the cookie banner.
+  // When keyboard focus lands under either, scroll just enough to show it with a 16px margin.
+  document.addEventListener('focusin', function (e) {
+    var el = e.target;
+    if (!el || !el.getBoundingClientRect || (banner && banner.contains(el))) return;
+    if (el.closest && el.closest('.site-header, .mmenu')) return;
+    var r = el.getBoundingClientRect(), hdr = $('.site-header');
+    var top = hdr ? hdr.getBoundingClientRect().bottom : 0;
+    var bottom = banner && banner.classList.contains('is-visible') ? banner.getBoundingClientRect().top : window.innerHeight;
+    if (r.height > bottom - top - 32) return; // taller than the gap: leave it to the browser
+    if (r.bottom > bottom - 16) window.scrollBy(0, r.bottom - bottom + 16);
+    else if (r.top < top + 16) window.scrollBy(0, r.top - top - 16);
+  });
 
   // [data-consent-status] (privacy.html, "Manage cookie preferences"): shows the current choice from its
   // data-granted / data-denied / data-unset texts, and updates when the choice changes
@@ -473,7 +488,9 @@
     }
 
     /* Stacking cards */
-    var cards = Array.prototype.filter.call(main.children, function (el) { return el.tagName === 'SECTION'; });
+    // every top-level block of <main> is a card (sections, and the plain blocks of the term and legal pages): a block
+    // left out would scroll underneath the stuck cards
+    var cards = Array.prototype.filter.call(main.children, function (el) { return !/^(SCRIPT|TEMPLATE|STYLE)$/.test(el.tagName) && !el.hidden; });
     var stacking = cards.length > 1 && !!(window.CSS && CSS.supports('position', 'sticky') && CSS.supports('overflow', 'clip'));
     if (stacking) {
       doc.classList.add('stacking');
@@ -517,8 +534,11 @@
       vh = window.innerHeight;
       var hdr = $('.site-header');
       headerH = hdr ? hdr.offsetHeight : 0;
+      var cb = $('.consent.is-visible');
+      var viewBottom = cb ? Math.min(vh, Math.round(cb.getBoundingClientRect().top)) : vh;
       if (stacking) cards.forEach(function (c, i) {
-        var top = Math.min(i === 0 ? 0 : headerH, vh - c.offsetHeight);
+        // stick when the card's bottom reaches the bottom of the visible area: the viewport, or the cookie banner while shown
+        var top = Math.min(i === 0 ? 0 : headerH, viewBottom - c.offsetHeight);
         c.style.top = top + 'px';
         c.style.transformOrigin = '50% ' + Math.round((i === 0 ? 0 : headerH) - top) + 'px'; // shrink towards the card's visible top edge, so older cards never peek above it
       });
@@ -571,8 +591,15 @@
       if (!card) return el.getBoundingClientRect().top + window.scrollY;
       while (n && n !== card) { y += n.offsetTop; n = n.offsetParent; }
       if (n !== card) y = 0;
-      var top = main.getBoundingClientRect().top + window.scrollY;
-      for (var i = 0; i < cards.length && cards[i] !== card; i++) top += cards[i].offsetHeight;
+      // normal-flow top of the card: main's top plus each earlier card with its margins (the first card's top margin
+      // collapses into main's, so main's box already includes it)
+      var top = main.getBoundingClientRect().top + window.scrollY, cs;
+      for (var i = 0; i < cards.length; i++) {
+        cs = window.getComputedStyle(cards[i]);
+        if (i) top += parseFloat(cs.marginTop) || 0;
+        if (cards[i] === card) break;
+        top += cards[i].offsetHeight + (parseFloat(cs.marginBottom) || 0);
+      }
       return top + y;
     }
     function jump(id, push) {
@@ -595,6 +622,18 @@
         if (jump(decodeURIComponent(a.getAttribute('href').slice(1)), true)) e.preventDefault();
       });
       window.addEventListener('load', function () { if (location.hash) jump(decodeURIComponent(location.hash.slice(1)), false); });
+      // Keyboard focus: the browser's own scroll-into-view can leave a focused element under a later card (the same stuck-
+      // position problem). If the focused element is not on top where it sits, scroll it into the clear like a jump link.
+      document.addEventListener('focusin', function (e) {
+        var el = e.target, card = el && el.closest && el.closest('.stack-card');
+        if (!card || !el.getBoundingClientRect) return;
+        var r = el.getBoundingClientRect();
+        var hit = document.elementFromPoint(Math.min(window.innerWidth - 2, Math.max(1, r.left + r.width / 2)), Math.min(window.innerHeight - 2, Math.max(1, r.top + Math.min(r.height, 40) / 2)));
+        var hc = hit && hit.closest && hit.closest('.stack-card');
+        if (r.bottom > headerH && r.top < window.innerHeight && (hc === card || (hc && card.contains(hc)))) return;
+        var y = Math.min(flowTop(el) - headerH - 16, flowTop(card) - (parseFloat(card.style.top) || 0));
+        window.scrollTo({ top: Math.max(0, y), behavior: 'instant' });
+      });
     }
 
     /* Bolder (Hisham, 2026-10-23): statements in the colour bands assemble from scattered words as the reader scrolls;
