@@ -3,7 +3,8 @@
    background parallax, hero video pause/play (WCAG 2.2.2) and the cookie consent that gates GA4.
    Also: window.HK (the shared EN/AR text normalisation and DOM helpers used by the Knowledge Center search and the
    Phase 5a tools) and the homepage Ask HAYKALAH box, which sends its question in the URL fragment.
-   Motion follows DIRECTION.md: ease-out, ≤300ms, 12–16px rise, 60ms stagger, parallax on background imagery only. */
+   Motion follows DIRECTION.md (ease-out, UI transitions ≤300ms). Motion v2 at the end adds stacking cards and scroll-linked
+   effects, chosen by Hisham on 2026-10-23 ("bold and cinematic"). */
 (function () {
   'use strict';
 
@@ -438,4 +439,284 @@
       if (first) first.focus();
     });
   });
+  /* ------------------------------------------------------------ Motion v2: "bold and cinematic" (Hisham, 2026-10-23)
+     Stacking cards: each top-level <section> of <main> is a card. A card sticks once its bottom reaches the viewport
+     (top = min(header, viewport - height)), the next card slides over it, and the one behind shrinks (to 92%), tips back and dims.
+     Also: headline word reveals, scroll-scrubbed ledes, hero zoom-out, count-up record figures, magnetic primary
+     buttons, card tilt (fine pointers only), slow pattern drift and a reading-progress bar.
+     Scroll-linked effects follow the reader's own scroll, so they have no duration. Reduced motion: none of this runs;
+     the page keeps normal flow and the shared fades. */
+  (function motion() {
+    if (reduceMQ.matches) return;
+    var main = $('main');
+    if (!main) return;
+    var finePointer = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
+    var vh = window.innerHeight, headerH = 0, ticking = false;
+    var clamp = function (v) { return v < 0 ? 0 : v > 1 ? 1 : v; };
+
+    function splitWords(root, cls) {
+      var walker = document.createTreeWalker(root, NodeFilter.SHOW_TEXT, null), nodes = [], n;
+      while ((n = walker.nextNode())) if (n.nodeValue.trim()) nodes.push(n);
+      nodes.forEach(function (t) {
+        var frag = document.createDocumentFragment();
+        t.nodeValue.split(/(\s+)/).forEach(function (part) {
+          if (!part) return;
+          if (/^\s+$/.test(part)) { frag.appendChild(document.createTextNode(part)); return; }
+          var w = document.createElement('span');
+          w.className = cls;
+          if (cls === 'w') { var inner = document.createElement('span'); inner.textContent = part; w.appendChild(inner); }
+          else w.textContent = part;
+          frag.appendChild(w);
+        });
+        t.parentNode.replaceChild(frag, t);
+      });
+    }
+
+    /* Stacking cards */
+    var cards = Array.prototype.filter.call(main.children, function (el) { return el.tagName === 'SECTION'; });
+    var stacking = cards.length > 1 && !!(window.CSS && CSS.supports('position', 'sticky') && CSS.supports('overflow', 'clip'));
+    if (stacking) {
+      doc.classList.add('stacking');
+      cards.forEach(function (c, i) {
+        c.classList.add('stack-card');
+        c.style.zIndex = String(i + 1); // later cards always paint over earlier ones, whatever a section's own z-index
+        if (i === 0) c.classList.add('stack-first');
+        var shade = document.createElement('div');
+        shade.className = 'stack-shade';
+        shade.setAttribute('aria-hidden', 'true');
+        c.appendChild(shade);
+        c._shade = shade;
+      });
+    }
+
+    /* Hero zoom-out: the first card's media grows and its copy lifts and fades as the reader leaves it */
+    var hero = $('main > .hero, main > .phero');
+    var heroMedia = hero && $('.hero-media, .phero-media', hero);
+    var heroBody = hero && $('.hero-body, .phero-body', hero);
+
+    /* Pattern drift */
+    var drifts = $$('.band-art, .pband-art');
+
+    /* Reading progress */
+    var bar = document.createElement('div');
+    bar.className = 'read-progress';
+    bar.setAttribute('aria-hidden', 'true');
+    document.body.appendChild(bar);
+
+    /* Scroll-scrubbed ledes: words brighten from 28% as the paragraph crosses the lower half of the viewport */
+    var scrubs = [];
+    $$('main .lede').forEach(function (p) {
+      if (hero && hero.contains(p)) return; // the hero lede is on screen at load
+      if (p.textContent.length > 420) return;
+      splitWords(p, 'sw');
+      p.classList.add('scrub');
+      scrubs.push({ el: p, words: $$('.sw', p) });
+    });
+
+    function measure() {
+      vh = window.innerHeight;
+      var hdr = $('.site-header');
+      headerH = hdr ? hdr.offsetHeight : 0;
+      if (stacking) cards.forEach(function (c, i) {
+        var top = Math.min(i === 0 ? 0 : headerH, vh - c.offsetHeight);
+        c.style.top = top + 'px';
+        c.style.transformOrigin = '50% ' + Math.round((i === 0 ? 0 : headerH) - top) + 'px'; // shrink towards the card's visible top edge, so older cards never peek above it
+      });
+      paint();
+    }
+
+    function paint() {
+      ticking = false;
+      var y = window.scrollY || window.pageYOffset;
+      var max = doc.scrollHeight - vh;
+      bar.style.transform = 'scaleX(' + (max > 0 ? clamp(y / max) : 0).toFixed(4) + ')';
+      if (stacking) for (var i = 0; i < cards.length - 1; i++) {
+        var c = cards[i], nt = cards[i + 1].getBoundingClientRect().top;
+        var p = clamp((vh - nt) / Math.max(1, vh - headerH));
+        if (p === c._p) continue;
+        c._p = p;
+        // the covered card falls back: shrinks to 92% and tips away from the reader by up to 5 degrees
+        c.style.transform = p ? 'perspective(1400px) rotateX(' + (p * 5).toFixed(2) + 'deg) scale(' + (1 - p * 0.08).toFixed(4) + ')' : '';
+        c._shade.style.opacity = (p * 0.6).toFixed(3);
+      }
+      if (heroMedia && y < vh * 1.5) {
+        var q = clamp(y / (hero.offsetHeight || vh));
+        heroMedia.style.transform = 'scale(' + (1 + q * 0.28).toFixed(4) + ')';
+        if (heroBody) { heroBody.style.transform = 'translate3d(0,' + (-q * 90).toFixed(1) + 'px,0)'; heroBody.style.opacity = (1 - q * 0.85).toFixed(3); }
+      }
+      drifts.forEach(function (d) {
+        var r = d.getBoundingClientRect();
+        if (r.bottom < 0 || r.top > vh) return;
+        var t = (r.top + r.height / 2 - vh / 2) / vh; // -1 … 1 around the viewport centre
+        d.style.transform = 'translate3d(0,' + (t * -48).toFixed(1) + 'px,0) rotate(' + (t * 4).toFixed(2) + 'deg)';
+      });
+      scrubs.forEach(function (s) {
+        var r = s.el.getBoundingClientRect();
+        if (r.top > vh || r.bottom < 0) return;
+        var k = clamp((vh * 0.92 - r.top) / (vh * 0.55)) * s.words.length;
+        s.words.forEach(function (w, n) { var o = clamp(k - n); if (w._o !== o) { w._o = o; w.style.opacity = (0.28 + o * 0.72).toFixed(3); } });
+      });
+    }
+    function onScroll() { if (!ticking) { ticking = true; window.requestAnimationFrame(paint); } }
+    window.addEventListener('scroll', onScroll, { passive: true });
+    window.addEventListener('resize', function () { window.requestAnimationFrame(measure); }, { passive: true });
+    if ('ResizeObserver' in window) new ResizeObserver(function () { window.requestAnimationFrame(measure); }).observe(main);
+    window.addEventListener('load', measure);
+    measure();
+
+    /* In-page links: a stuck card reports its stuck position, so the browser's own jump can land under a later card.
+       Jump to the target's position in the normal flow instead (the cards' summed heights), then move focus there. */
+    function flowTop(el) {
+      var card = el.closest && el.closest('.stack-card'), y = 0, n = el;
+      if (!card) return el.getBoundingClientRect().top + window.scrollY;
+      while (n && n !== card) { y += n.offsetTop; n = n.offsetParent; }
+      if (n !== card) y = 0;
+      var top = main.getBoundingClientRect().top + window.scrollY;
+      for (var i = 0; i < cards.length && cards[i] !== card; i++) top += cards[i].offsetHeight;
+      return top + y;
+    }
+    function jump(id, push) {
+      var t = id && document.getElementById(id);
+      if (!t || !main.contains(t)) return false;
+      var isCard = t.classList.contains('stack-card');
+      var y = flowTop(t) - (isCard ? headerH : headerH + 16), card = t.closest('.stack-card');
+      // never scroll past the point where the target's card sticks: beyond it the next card starts to cover the target
+      if (card) y = Math.min(y, flowTop(card) - (parseFloat(card.style.top) || 0));
+      window.scrollTo(0, Math.max(0, y));
+      if (push && window.history.pushState) window.history.pushState(null, '', '#' + id);
+      if (!t.hasAttribute('tabindex') && !/^(A|BUTTON|INPUT|SELECT|TEXTAREA)$/.test(t.tagName)) t.setAttribute('tabindex', '-1');
+      t.focus({ preventScroll: true });
+      return true;
+    }
+    if (stacking) {
+      document.addEventListener('click', function (e) {
+        var a = e.target.closest && e.target.closest('a[href^="#"]');
+        if (!a || e.defaultPrevented || e.button || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
+        if (jump(decodeURIComponent(a.getAttribute('href').slice(1)), true)) e.preventDefault();
+      });
+      window.addEventListener('load', function () { if (location.hash) jump(decodeURIComponent(location.hash.slice(1)), false); });
+    }
+
+    /* Bolder (Hisham, 2026-10-23): statements in the colour bands assemble from scattered words as the reader scrolls;
+       the Design → Implement → Operate → Monitor steps light up one by one with a line drawing under them; photos
+       settle from a 22% zoom as they cross the viewport. All scrubbed by the reader's scroll. */
+    var assembles = [];
+    $$('main .band h2, main .closing h2, main .closing-band h2').forEach(function (h) {
+      if (h.classList.contains('visually-hidden') || h.textContent.length > 160) return;
+      splitWords(h, 'aw');
+      h.classList.add('assemble');
+      var words = $$('.aw', h);
+      words.forEach(function (w, n) {
+        var a = (n * 137.5) % 360 * Math.PI / 180; // golden-angle scatter: varied but stable from load to load
+        w._dx = Math.cos(a) * (50 + (n % 3) * 22);
+        w._dy = Math.sin(a) * (34 + (n % 2) * 18);
+        w._rot = ((n % 5) - 2) * 6;
+      });
+      assembles.push({ el: h, words: words });
+    });
+    var methods = $$('main .method').map(function (m) { m.classList.add('method-scene'); return { el: m, steps: $$('li:not(.arr)', m) }; });
+    var zooms = $$('main .photo img, main .closing-photo img, main .photo-band img, main .office img');
+    zooms.forEach(function (z) { z.classList.add('scroll-zoom'); });
+
+    function paintBolder() {
+      assembles.forEach(function (s) {
+        var r = s.el.getBoundingClientRect();
+        if (r.top > vh || r.bottom < 0) return;
+        var k = clamp((vh * 0.98 - r.top) / (vh * 0.55)), len = s.words.length;
+        s.words.forEach(function (w, n) {
+          var lk = clamp(k * 1.5 - (n / Math.max(1, len)) * 0.5), e = 1 - Math.pow(1 - lk, 3), inv = 1 - e;
+          if (w._k === e) return;
+          w._k = e;
+          w.style.transform = inv ? 'translate3d(' + (w._dx * inv).toFixed(1) + 'px,' + (w._dy * inv).toFixed(1) + 'px,0) rotate(' + (w._rot * inv).toFixed(1) + 'deg)' : '';
+          w.style.opacity = (0.08 + e * 0.92).toFixed(3);
+        });
+      });
+      methods.forEach(function (m) {
+        var r = m.el.getBoundingClientRect();
+        if (r.top > vh || r.bottom < 0) return;
+        var k = clamp((vh * 0.9 - r.top) / (vh * 0.45));
+        m.el.style.setProperty('--mp', k.toFixed(3));
+        m.steps.forEach(function (li, n) { li.classList.toggle('lit', k >= (n + 0.5) / m.steps.length); });
+      });
+      zooms.forEach(function (z) {
+        var r = z.getBoundingClientRect();
+        if (r.top > vh || r.bottom < 0) return;
+        var t = clamp((vh - r.top) / (vh + r.height)); // 0 entering at the bottom … 1 leaving at the top
+        z.style.transform = 'scale(' + (1.22 - Math.min(t * 1.6, 1) * 0.22).toFixed(4) + ')';
+      });
+    }
+    window.addEventListener('scroll', function () { window.requestAnimationFrame(paintBolder); }, { passive: true });
+    window.addEventListener('resize', function () { window.requestAnimationFrame(paintBolder); }, { passive: true });
+    paintBolder();
+
+    /* Headline word reveal: words rise out of a mask, 40 ms apart (cap 600 ms), when the heading enters */
+    var heads = $$('main h1, main h2').filter(function (h) { return !h.classList.contains('visually-hidden') && !h.classList.contains('assemble') && h.textContent.length < 160; });
+    if (heads.length && 'IntersectionObserver' in window) {
+      heads.forEach(function (h) {
+        splitWords(h, 'w');
+        $$('.w > span', h).forEach(function (s, i) { s.style.transitionDelay = Math.min(i * 40, 600) + 'ms'; });
+        h.classList.add('wsplit');
+      });
+      var hio = new IntersectionObserver(function (entries) {
+        entries.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add('words-in'); hio.unobserve(e.target); } });
+      }, { rootMargin: '0px 0px -8% 0px' });
+      window.requestAnimationFrame(function () { heads.forEach(function (h) { hio.observe(h); }); });
+    }
+
+    /* Count-up record figures: the real figure stays in the page for screen readers; only a hidden-from-AT copy counts */
+    var figs = $$('.record .fig');
+    if (figs.length && 'IntersectionObserver' in window) {
+      figs.forEach(function (f) {
+        var walker = document.createTreeWalker(f, NodeFilter.SHOW_TEXT, null), t;
+        while ((t = walker.nextNode())) if (/\d/.test(t.nodeValue)) break;
+        if (!t) return;
+        var m = t.nodeValue.match(/^(\D*)([\d.,]+)(.*)$/);
+        if (!m) return;
+        var target = parseFloat(m[2].replace(/,/g, '')), dec = (m[2].split('.')[1] || '').length;
+        var real = document.createElement('span'); real.className = 'visually-hidden'; real.textContent = t.nodeValue;
+        var shown = document.createElement('span'); shown.setAttribute('aria-hidden', 'true'); shown.textContent = m[1] + (0).toFixed(dec) + m[3];
+        t.parentNode.replaceChild(shown, t); shown.parentNode.insertBefore(real, shown);
+        f._count = { el: shown, pre: m[1], post: m[3], to: target, dec: dec };
+      });
+      var cio = new IntersectionObserver(function (entries) {
+        entries.forEach(function (e) {
+          if (!e.isIntersecting || !e.target._count) return;
+          cio.unobserve(e.target);
+          var c = e.target._count, start = null, DUR = 1600;
+          window.requestAnimationFrame(function step(ts) {
+            if (start === null) start = ts;
+            var k = Math.min(1, (ts - start) / DUR), ease = 1 - Math.pow(2, -10 * k);
+            c.el.textContent = c.pre + (k === 1 ? c.to : c.to * ease).toFixed(c.dec) + c.post;
+            if (k < 1) window.requestAnimationFrame(step);
+          });
+        });
+      }, { threshold: 0.6 });
+      figs.forEach(function (f) { if (f._count) cio.observe(f); });
+    }
+
+    if (!finePointer) return;
+
+    /* Magnetic buttons: drift up to 8 px towards the pointer, settle back in 300 ms */
+    $$('main .btn-primary, main .btn-secondary').forEach(function (b) {
+      b.classList.add('magnetic');
+      b.addEventListener('pointermove', function (e) {
+        var r = b.getBoundingClientRect();
+        var dx = (e.clientX - r.left - r.width / 2) / (r.width / 2), dy = (e.clientY - r.top - r.height / 2) / (r.height / 2);
+        b.style.transform = 'translate3d(' + (dx * 8).toFixed(1) + 'px,' + (dy * 5).toFixed(1) + 'px,0)';
+      });
+      b.addEventListener('pointerleave', function () { b.style.transform = ''; });
+    });
+
+    /* Card tilt: up to 4 degrees towards the pointer, with a soft light following it */
+    $$('.rcard, .gcard, .icard, .feat-tile').forEach(function (c) {
+      c.classList.add('tilt');
+      c.addEventListener('pointermove', function (e) {
+        var r = c.getBoundingClientRect(), x = (e.clientX - r.left) / r.width, y = (e.clientY - r.top) / r.height;
+        c.style.transform = 'perspective(900px) rotateX(' + ((0.5 - y) * 6).toFixed(2) + 'deg) rotateY(' + ((x - 0.5) * 8).toFixed(2) + 'deg)';
+        c.style.setProperty('--mx', (x * 100).toFixed(1) + '%');
+        c.style.setProperty('--my', (y * 100).toFixed(1) + '%');
+      });
+      c.addEventListener('pointerleave', function () { c.style.transform = ''; });
+    });
+  })();
 })();
