@@ -2727,70 +2727,93 @@ legend { max-width: 100%; }
 }
 :lang(ar) .rm-frame > img::after { font: 400 13px/20px var(--font-arabic); direction: rtl; } /* bottom-left, clear of the pins (the map is never mirrored) */
 
-/* ---------------------------------------------------------------- Motion v2: stacking cards and scroll-linked effects
-   Chosen by Hisham on 2026-10-23 ("bold and cinematic"); js/site.js adds every class below, so without JS, or with
-   reduced motion, the page keeps its normal flow. Shape rule: section cards have 24px top corners (20px on phones);
-   components inside keep the brand's sharp 2px corners. */
+/* ---------------------------------------------------------------- Motion v3 (Hisham, 2026-10-24)
+   js/site.js adds every class below, so without JS, or with reduced motion, nothing here applies. Editorial reveals
+   site-wide; a held hero scene with a 3D structure, a sideways practices filmstrip and the method scene on the homepage;
+   a slow living gradient in the colour bands; a cross-fade between pages. */
 @media (prefers-reduced-motion: no-preference) {
-  .stacking main > .stack-card {
-    position: sticky; isolation: isolate; overflow: clip;
-    background-color: var(--surface);
-    border-radius: 24px 24px 0 0; border-top: 1px solid var(--line);
-    box-shadow: 0 -22px 44px -18px rgb(8 6 24 / 0.7);
-    will-change: transform;
-  }
-  .stacking main > .stack-card.stack-first { border-radius: 0; border-top: 0; box-shadow: none; }
-  .stack-shade { position: absolute; inset: 0; z-index: 50; background-color: #07051a; opacity: 0; pointer-events: none; }
+  /* Headings rise through a curtain (the mask is removed once the reveal has run, so nothing stays clipped) */
+  .curtain { clip-path: inset(0 0 100% 0); transform: translate3d(0, 0.32em, 0); transition: clip-path 1100ms cubic-bezier(0.19, 1, 0.22, 1), transform 1100ms cubic-bezier(0.19, 1, 0.22, 1); }
+  .curtain.is-shown { clip-path: inset(0 0 0 0); transform: none; }
+  .curtain.is-done { clip-path: none; transition: none; }
+  .hero .curtain { transition-delay: 240ms; }
 
-  /* Headlines: words rise out of a mask */
-  .wsplit .w { display: inline-block; overflow: clip; vertical-align: top; padding-block: 0.12em; margin-block: -0.12em; }
-  .wsplit .w > span { display: inline-block; transform: translate3d(0, 108%, 0); transition: transform 820ms cubic-bezier(0.2, 0.8, 0.2, 1); }
-  .wsplit.words-in .w > span { transform: none; }
+  /* Photos open from a frame and settle */
+  .frame { clip-path: inset(9% 7% 9% 7%); transition: clip-path 1300ms cubic-bezier(0.19, 1, 0.22, 1); }
+  .frame img { transform: scale(1.16); transition: transform 1600ms cubic-bezier(0.19, 1, 0.22, 1); }
+  .frame.is-shown { clip-path: inset(0 0 0 0); }
+  .frame.is-shown img { transform: none; }
+  .frame.is-done { clip-path: none; }
 
-  /* Ledes brighten word by word with the reader's scroll */
-  .scrub .sw { opacity: 0.28; }
+  /* Homepage hero: held for 120vh while the structure builds */
+  .hero.hero-held { display: block; height: calc(100svh + 120vh); overflow: clip; }
+  .hero-stage { position: sticky; top: 0; height: 100svh; min-height: 560px; display: flex; flex-direction: column; justify-content: flex-end; overflow: hidden; isolation: isolate; padding-bottom: var(--consent-h, 0px); }
+  .hero-held .hero-media { position: absolute; inset: 0; }
+  .structure { position: absolute; inset: 0; width: 100%; height: 100%; z-index: 1; pointer-events: none; mix-blend-mode: screen; }
+  .hero-held .hero-photo { transform-origin: 50% 60%; will-change: transform; }
+  .hero-held .hero-copy { will-change: transform, opacity; }
 
-  /* Hero zoom-out (scroll-linked, no transition) */
-  .hero-media, .phero-media { transform-origin: 50% 40%; will-change: transform; }
+  /* Practices filmstrip: a sticky stage; the track slides sideways with the reader's scroll */
+  .film { position: relative; }
+  .film .film-stage { position: sticky; top: 0; height: 100vh; display: flex; align-items: center; overflow: hidden; }
+  .film .practices { display: flex; flex-wrap: nowrap; gap: 0; width: max-content; will-change: transform; }
+  .film .practices li, .film .practices li:nth-child(n) { flex: 0 0 min(34vw, 460px); border-top: 0; border-inline-start: 1px solid var(--line); }
+  .film .practices li:first-child { border-inline-start: 0; }
+  .film .practices a, .film .practices li:nth-child(n) a { min-height: 52vh; padding: 40px 36px; display: flex; flex-direction: column; justify-content: space-between; }
+  .film .film-stage { flex-direction: column; justify-content: center; align-items: stretch; gap: 36px; }
+  .film .practices a, .film .practices li:nth-child(n) a { min-height: 46vh; }
+  .film .p-n { font: 400 76px/1 var(--font-serif); color: var(--accent); letter-spacing: -0.02em; }
+  .film .p-top { align-items: flex-start; }
+  .film .practices h3 { margin-top: auto; font-size: 32px; line-height: 38px; }
+  .film .practices p { font-size: 17px; line-height: 27px; }
+  .film-foot { display: flex; align-items: center; gap: 24px; width: 100%; max-width: calc(var(--max) + 2 * var(--gutter)); margin-inline: auto; padding-inline: var(--gutter); }
+  .film-bar { position: relative; flex: 1; height: 1px; background-color: var(--line); }
+  .film-bar i { position: absolute; inset: -1px 0; background-color: var(--accent-ink); transform: scaleX(0.06); transform-origin: 0 50%; }
+  :root[dir="rtl"] .film-bar i { transform-origin: 100% 50%; }
+  .film-count { font: 700 14px/1 var(--font-sans); letter-spacing: 0.12em; color: var(--ink-muted); font-variant-numeric: tabular-nums; }
+  .film .wwd-foot { width: 100%; max-width: calc(var(--max) + 2 * var(--gutter)); margin: 0 auto; padding-inline: var(--gutter); }
+  :lang(ar) .film .practices h3 { font-size: 26px; line-height: 40px; }
 
-  /* Pattern drift */
-  .band-art, .pband-art { will-change: transform; }
-
-  /* Bigger reveals */
-  .reveal-ready [data-reveal] { transition-duration: 640ms; transition-timing-function: cubic-bezier(0.2, 0.8, 0.2, 1); }
-  .reveal-ready [data-reveal]:not(.is-in) { transform: translate3d(0, 34px, 0) scale(0.985); }
-
-  /* Reading progress */
-  .read-progress {
-    position: fixed; inset: 0 0 auto; z-index: 70; height: 3px;
-    background: linear-gradient(90deg, var(--lavender-300), var(--accent-ink));
-    transform: scaleX(0); transform-origin: 0 50%; pointer-events: none;
-  }
-  :root[dir="rtl"] .read-progress { transform-origin: 100% 50%; }
-}
-@media (prefers-reduced-motion: no-preference) and (max-width: 767px) {
-  .stacking main > .stack-card { border-radius: 20px 20px 0 0; }
-}
-@media (prefers-reduced-motion: no-preference) and (hover: hover) and (pointer: fine) {
-  .magnetic { transition: transform 300ms var(--ease-out), background-color var(--dur) var(--ease), color var(--dur) var(--ease), border-color var(--dur) var(--ease); }
-  .tilt { position: relative; transform-style: preserve-3d; transition: transform 300ms var(--ease-out), background-color var(--dur) var(--ease); }
-  .tilt::after {
-    content: ""; position: absolute; inset: 0; pointer-events: none; opacity: 0;
-    background: radial-gradient(360px circle at var(--mx, 50%) var(--my, 50%), rgb(255 255 255 / 0.09), transparent 60%);
-    transition: opacity 300ms var(--ease-out);
-  }
-  .tilt:hover::after { opacity: 1; }
-}
-@media (prefers-reduced-motion: no-preference) {
-  /* Bolder: assembling statements, the method scene and scroll zoom (all scrubbed from js/site.js) */
-  .assemble .aw { display: inline-block; opacity: 0.08; will-change: transform, opacity; }
+  /* Method: steps light in turn and a line draws under them */
   .method-scene { position: relative; }
-  .method-scene::after {
-    content: ""; position: absolute; inset-inline: 0; bottom: -14px; height: 2px; background-color: currentColor; opacity: 0.85;
-    transform: scaleX(var(--mp, 0)); transform-origin: 0 50%;
-  }
+  .method-scene::after { content: ""; position: absolute; inset-inline: 0; bottom: -14px; height: 2px; background-color: currentColor; opacity: 0.8; transform: scaleX(var(--mp, 0)); transform-origin: 0 50%; }
   :root[dir="rtl"] .method-scene::after { transform-origin: 100% 50%; }
-  .method-scene li:not(.arr) { opacity: 0.35; transform: translate3d(0, 10px, 0); transition: opacity 420ms var(--ease-out), transform 420ms var(--ease-out); }
-  .method-scene li.lit { opacity: 1; transform: none; }
-  .scroll-zoom { transform: scale(1.22); transform-origin: 50% 50%; will-change: transform; }
+  .method-scene li:not(.arr) { opacity: 0.32; transition: opacity 500ms var(--ease-out); }
+  .method-scene li.lit { opacity: 1; }
+
+  /* Living gradient in the colour bands: two soft lights drift over 26 seconds */
+  .flood { position: relative; }
+  .flood::before {
+    content: ""; position: absolute; inset: -35%; pointer-events: none;
+    background:
+      radial-gradient(38% 46% at 22% 28%, rgb(255 255 255 / 0.13), transparent 70%),
+      radial-gradient(34% 42% at 78% 72%, rgb(30 18 110 / 0.38), transparent 70%);
+    animation: hk-drift 26s ease-in-out infinite alternate;
+  }
+  .flood > .band-inner, .flood > .wrap { position: relative; z-index: 1; }
+}
+@keyframes hk-drift { from { transform: translate3d(-4%, -3%, 0) rotate(0deg); } to { transform: translate3d(5%, 4%, 0) rotate(8deg); } }
+
+/* Cross-fade between pages (browsers that support cross-document view transitions; others simply navigate) */
+@media (prefers-reduced-motion: no-preference) {
+  @view-transition { navigation: auto; }
+  ::view-transition-old(root) { animation: 260ms var(--ease-out) both hk-vt-out; }
+  ::view-transition-new(root) { animation: 380ms var(--ease-out) both hk-vt-in; }
+}
+@keyframes hk-vt-out { to { opacity: 0; } }
+@keyframes hk-vt-in { from { opacity: 0; transform: translate3d(0, 10px, 0); } }
+
+/* ---------------------------------------------------------------- Photo interludes (2026-10-24)
+   Decorative full-width bands between sections. The photo fades into the Iris page at its top and bottom edges, so it
+   reads as part of the page, not a box. No text sits on it. */
+.interlude { position: relative; height: clamp(320px, 72vh, 760px); overflow: hidden; background-color: var(--surface); }
+.interlude img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.interlude::after {
+  content: ""; position: absolute; inset: 0; pointer-events: none;
+  background: linear-gradient(180deg, var(--surface) 0%, rgb(28 24 64 / 0) 24%, rgb(28 24 64 / 0) 68%, var(--surface) 100%), rgb(28 24 64 / 0.16);
+}
+@media (max-width: 767px) { .interlude { height: 46vh; } }
+@media (prefers-reduced-motion: no-preference) {
+  .js .interlude { clip-path: inset(0 8% 0 8%); }
+  .js .interlude img { transform: scale(1.14); will-change: transform; }
 }

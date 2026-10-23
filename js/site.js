@@ -3,8 +3,7 @@
    background parallax, hero video pause/play (WCAG 2.2.2) and the cookie consent that gates GA4.
    Also: window.HK (the shared EN/AR text normalisation and DOM helpers used by the Knowledge Center search and the
    Phase 5a tools) and the homepage Ask HAYKALAH box, which sends its question in the URL fragment.
-   Motion follows DIRECTION.md (ease-out, UI transitions ≤300ms). Motion v2 at the end adds stacking cards and scroll-linked
-   effects, chosen by Hisham on 2026-10-23 ("bold and cinematic"). */
+   Motion follows DIRECTION.md (ease-out, UI transitions ≤300ms). Motion v3 at the end: see its header. */
 (function () {
   'use strict';
 
@@ -394,9 +393,10 @@
       }
     });
   }
-  // The stacking cards stick above the banner while it shows, so they re-measure (on resize) when it appears or goes
-  function showBanner() { if (banner) { banner.classList.add('is-visible'); window.dispatchEvent(new Event('resize')); } }
-  function hideBanner() { if (banner) { banner.classList.remove('is-visible'); window.dispatchEvent(new Event('resize')); } }
+  // Scroll scenes re-measure (on resize) when the banner appears or goes
+  // --consent-h lets the held homepage hero keep its buttons above the banner while it shows
+  function showBanner() { if (banner) { banner.classList.add('is-visible'); doc.style.setProperty('--consent-h', banner.offsetHeight + 'px'); window.dispatchEvent(new Event('resize')); } }
+  function hideBanner() { if (banner) { banner.classList.remove('is-visible'); doc.style.removeProperty('--consent-h'); window.dispatchEvent(new Event('resize')); } }
 
   // Focus not obscured (WCAG 2.2 2.4.11): a focused element must not sit under the sticky header or the cookie banner.
   // When keyboard focus lands under either, scroll just enough to show it with a 16px margin.
@@ -454,308 +454,253 @@
       if (first) first.focus();
     });
   });
-  /* ------------------------------------------------------------ Motion v2: "bold and cinematic" (Hisham, 2026-10-23)
-     Stacking cards: each top-level <section> of <main> is a card. A card sticks once its bottom reaches the viewport
-     (top = min(header, viewport - height)), the next card slides over it, and the one behind shrinks (to 92%), tips back and dims.
-     Also: headline word reveals, scroll-scrubbed ledes, hero zoom-out, count-up record figures, magnetic primary
-     buttons, card tilt (fine pointers only), slow pattern drift and a reading-progress bar.
-     Scroll-linked effects follow the reader's own scroll, so they have no duration. Reduced motion: none of this runs;
-     the page keeps normal flow and the shared fades. */
-  (function motion() {
+  /* ------------------------------------------------------------ Motion v3 (Hisham, 2026-10-24: "a few big, crafted moments")
+     Site-wide: headings rise through a curtain mask; photos open from a frame and settle; record figures tick up once.
+     Homepage only: a held hero scene in which a 3D structure (thin beams on a canvas, no library) builds as the reader
+     scrolls, the camera flying through it; the six practices as a sideways filmstrip; the method lighting up step by step.
+     Every scroll-linked value eases towards its target each frame, so movement glides instead of jumping.
+     Reduced motion: none of it runs; the page keeps its normal layout and the shared fades. */
+  (function motion3() {
     if (reduceMQ.matches) return;
     var main = $('main');
-    if (!main) return;
-    var finePointer = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
-    var vh = window.innerHeight, headerH = 0, ticking = false;
+    if (!main || !('IntersectionObserver' in window)) return;
+    var rtl = doc.getAttribute('dir') === 'rtl';
     var clamp = function (v) { return v < 0 ? 0 : v > 1 ? 1 : v; };
+    var ease = function (t) { return 1 - Math.pow(1 - t, 3); };
+    var vh = window.innerHeight, vw = window.innerWidth;
 
-    function splitWords(root, cls) {
-      var walker = document.createTreeWalker(root, NodeFilter.SHOW_TEXT, null), nodes = [], n;
-      while ((n = walker.nextNode())) if (n.nodeValue.trim()) nodes.push(n);
-      nodes.forEach(function (t) {
-        var frag = document.createDocumentFragment();
-        t.nodeValue.split(/(\s+)/).forEach(function (part) {
-          if (!part) return;
-          if (/^\s+$/.test(part)) { frag.appendChild(document.createTextNode(part)); return; }
-          var w = document.createElement('span');
-          w.className = cls;
-          if (cls === 'w') { var inner = document.createElement('span'); inner.textContent = part; w.appendChild(inner); }
-          else w.textContent = part;
-          frag.appendChild(w);
-        });
-        t.parentNode.replaceChild(frag, t);
-      });
-    }
-
-    /* Stacking cards */
-    // every top-level block of <main> is a card (sections, and the plain blocks of the term and legal pages): a block
-    // left out would scroll underneath the stuck cards
-    var cards = Array.prototype.filter.call(main.children, function (el) { return !/^(SCRIPT|TEMPLATE|STYLE)$/.test(el.tagName) && !el.hidden; });
-    var stacking = cards.length > 1 && !!(window.CSS && CSS.supports('position', 'sticky') && CSS.supports('overflow', 'clip'));
-    if (stacking) {
-      doc.classList.add('stacking');
-      cards.forEach(function (c, i) {
-        c.classList.add('stack-card');
-        c.style.zIndex = String(i + 1); // later cards always paint over earlier ones, whatever a section's own z-index
-        if (i === 0) c.classList.add('stack-first');
-        var shade = document.createElement('div');
-        shade.className = 'stack-shade';
-        shade.setAttribute('aria-hidden', 'true');
-        c.appendChild(shade);
-        c._shade = shade;
-      });
-    }
-
-    /* Hero zoom-out: the first card's media grows and its copy lifts and fades as the reader leaves it */
-    var hero = $('main > .hero, main > .phero');
-    var heroMedia = hero && $('.hero-media, .phero-media', hero);
-    var heroBody = hero && $('.hero-body, .phero-body', hero);
-
-    /* Pattern drift */
-    var drifts = $$('.band-art, .pband-art');
-
-    /* Reading progress */
-    var bar = document.createElement('div');
-    bar.className = 'read-progress';
-    bar.setAttribute('aria-hidden', 'true');
-    document.body.appendChild(bar);
-
-    /* Scroll-scrubbed ledes: words brighten from 28% as the paragraph crosses the lower half of the viewport */
-    var scrubs = [];
-    $$('main .lede').forEach(function (p) {
-      if (hero && hero.contains(p)) return; // the hero lede is on screen at load
-      if (p.textContent.length > 420) return;
-      splitWords(p, 'sw');
-      p.classList.add('scrub');
-      scrubs.push({ el: p, words: $$('.sw', p) });
+    /* Curtain and frame reveals (once): the class goes on, the transition runs, then the mask is removed altogether */
+    var shown = function (el) {
+      el.classList.add('is-shown');
+      window.setTimeout(function () { el.classList.add('is-done'); }, 1500);
+    };
+    var rio = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) { if (e.isIntersecting) { shown(e.target); rio.unobserve(e.target); } });
+    }, { rootMargin: '0px 0px -10% 0px' });
+    $$('main h1, main h2').forEach(function (h) {
+      if (h.classList.contains('visually-hidden') || h.closest('.consent')) return;
+      h.classList.add('curtain');
+      rio.observe(h);
     });
-
-    function measure() {
-      vh = window.innerHeight;
-      var hdr = $('.site-header');
-      headerH = hdr ? hdr.offsetHeight : 0;
-      var cb = $('.consent.is-visible');
-      var viewBottom = cb ? Math.min(vh, Math.round(cb.getBoundingClientRect().top)) : vh;
-      if (stacking) cards.forEach(function (c, i) {
-        // stick when the card's bottom reaches the bottom of the visible area: the viewport, or the cookie banner while shown
-        var top = Math.min(i === 0 ? 0 : headerH, viewBottom - c.offsetHeight);
-        c.style.top = top + 'px';
-        c.style.transformOrigin = '50% ' + Math.round((i === 0 ? 0 : headerH) - top) + 'px'; // shrink towards the card's visible top edge, so older cards never peek above it
-      });
-      paint();
-    }
-
-    function paint() {
-      ticking = false;
-      var y = window.scrollY || window.pageYOffset;
-      var max = doc.scrollHeight - vh;
-      bar.style.transform = 'scaleX(' + (max > 0 ? clamp(y / max) : 0).toFixed(4) + ')';
-      if (stacking) for (var i = 0; i < cards.length - 1; i++) {
-        var c = cards[i], nt = cards[i + 1].getBoundingClientRect().top;
-        var p = clamp((vh - nt) / Math.max(1, vh - headerH));
-        if (p === c._p) continue;
-        c._p = p;
-        // the covered card falls back: shrinks to 92% and tips away from the reader by up to 5 degrees
-        c.style.transform = p ? 'perspective(1400px) rotateX(' + (p * 5).toFixed(2) + 'deg) scale(' + (1 - p * 0.08).toFixed(4) + ')' : '';
-        c._shade.style.opacity = (p * 0.6).toFixed(3);
-      }
-      if (heroMedia && y < vh * 1.5) {
-        var q = clamp(y / (hero.offsetHeight || vh));
-        heroMedia.style.transform = 'scale(' + (1 + q * 0.28).toFixed(4) + ')';
-        if (heroBody) { heroBody.style.transform = 'translate3d(0,' + (-q * 90).toFixed(1) + 'px,0)'; heroBody.style.opacity = (1 - q * 0.85).toFixed(3); }
-      }
-      drifts.forEach(function (d) {
-        var r = d.getBoundingClientRect();
-        if (r.bottom < 0 || r.top > vh) return;
-        var t = (r.top + r.height / 2 - vh / 2) / vh; // -1 … 1 around the viewport centre
-        d.style.transform = 'translate3d(0,' + (t * -48).toFixed(1) + 'px,0) rotate(' + (t * 4).toFixed(2) + 'deg)';
-      });
-      scrubs.forEach(function (s) {
-        var r = s.el.getBoundingClientRect();
-        if (r.top > vh || r.bottom < 0) return;
-        var k = clamp((vh * 0.92 - r.top) / (vh * 0.55)) * s.words.length;
-        s.words.forEach(function (w, n) { var o = clamp(k - n); if (w._o !== o) { w._o = o; w.style.opacity = (0.28 + o * 0.72).toFixed(3); } });
-      });
-    }
-    function onScroll() { if (!ticking) { ticking = true; window.requestAnimationFrame(paint); } }
-    window.addEventListener('scroll', onScroll, { passive: true });
-    window.addEventListener('resize', function () { window.requestAnimationFrame(measure); }, { passive: true });
-    if ('ResizeObserver' in window) new ResizeObserver(function () { window.requestAnimationFrame(measure); }).observe(main);
-    window.addEventListener('load', measure);
-    measure();
-
-    /* In-page links: a stuck card reports its stuck position, so the browser's own jump can land under a later card.
-       Jump to the target's position in the normal flow instead (the cards' summed heights), then move focus there. */
-    function flowTop(el) {
-      var card = el.closest && el.closest('.stack-card'), y = 0, n = el;
-      if (!card) return el.getBoundingClientRect().top + window.scrollY;
-      while (n && n !== card) { y += n.offsetTop; n = n.offsetParent; }
-      if (n !== card) y = 0;
-      // normal-flow top of the card: main's top plus each earlier card with its margins (the first card's top margin
-      // collapses into main's, so main's box already includes it)
-      var top = main.getBoundingClientRect().top + window.scrollY, cs;
-      for (var i = 0; i < cards.length; i++) {
-        cs = window.getComputedStyle(cards[i]);
-        if (i) top += parseFloat(cs.marginTop) || 0;
-        if (cards[i] === card) break;
-        top += cards[i].offsetHeight + (parseFloat(cs.marginBottom) || 0);
-      }
-      return top + y;
-    }
-    function jump(id, push) {
-      var t = id && document.getElementById(id);
-      if (!t || !main.contains(t)) return false;
-      var isCard = t.classList.contains('stack-card');
-      var y = flowTop(t) - (isCard ? headerH : headerH + 16), card = t.closest('.stack-card');
-      // never scroll past the point where the target's card sticks: beyond it the next card starts to cover the target
-      if (card) y = Math.min(y, flowTop(card) - (parseFloat(card.style.top) || 0));
-      window.scrollTo(0, Math.max(0, y));
-      if (push && window.history.pushState) window.history.pushState(null, '', '#' + id);
-      if (!t.hasAttribute('tabindex') && !/^(A|BUTTON|INPUT|SELECT|TEXTAREA)$/.test(t.tagName)) t.setAttribute('tabindex', '-1');
-      t.focus({ preventScroll: true });
-      return true;
-    }
-    if (stacking) {
-      document.addEventListener('click', function (e) {
-        var a = e.target.closest && e.target.closest('a[href^="#"]');
-        if (!a || e.defaultPrevented || e.button || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
-        if (jump(decodeURIComponent(a.getAttribute('href').slice(1)), true)) e.preventDefault();
-      });
-      window.addEventListener('load', function () { if (location.hash) jump(decodeURIComponent(location.hash.slice(1)), false); });
-      // Keyboard focus: the browser's own scroll-into-view can leave a focused element under a later card (the same stuck-
-      // position problem). If the focused element is not on top where it sits, scroll it into the clear like a jump link.
-      document.addEventListener('focusin', function (e) {
-        var el = e.target, card = el && el.closest && el.closest('.stack-card');
-        if (!card || !el.getBoundingClientRect) return;
+    $$('main .photo, main .closing-photo, main .office').forEach(function (p) { p.classList.add('frame'); rio.observe(p); });
+    // Safety net: anything already above the bottom 5% of the viewport reveals even if the observer missed it
+    // (the last blocks of a page can never cross the observer's -10% line)
+    var sweep = function () {
+      $$('.curtain:not(.is-shown), .frame:not(.is-shown)').forEach(function (el) {
         var r = el.getBoundingClientRect();
-        var hit = document.elementFromPoint(Math.min(window.innerWidth - 2, Math.max(1, r.left + r.width / 2)), Math.min(window.innerHeight - 2, Math.max(1, r.top + Math.min(r.height, 40) / 2)));
-        var hc = hit && hit.closest && hit.closest('.stack-card');
-        if (r.bottom > headerH && r.top < window.innerHeight && (hc === card || (hc && card.contains(hc)))) return;
-        var y = Math.min(flowTop(el) - headerH - 16, flowTop(card) - (parseFloat(card.style.top) || 0));
-        window.scrollTo({ top: Math.max(0, y), behavior: 'instant' });
+        if (r.top < window.innerHeight * 0.95 && r.width) { shown(el); rio.unobserve(el); }
       });
-    }
+    };
+    var swept = false;
+    window.addEventListener('scroll', function () { if (!swept) { swept = true; window.requestAnimationFrame(function () { swept = false; sweep(); }); } }, { passive: true });
+    window.addEventListener('load', sweep);
 
-    /* Bolder (Hisham, 2026-10-23): statements in the colour bands assemble from scattered words as the reader scrolls;
-       the Design → Implement → Operate → Monitor steps light up one by one with a line drawing under them; photos
-       settle from a 22% zoom as they cross the viewport. All scrubbed by the reader's scroll. */
-    var assembles = [];
-    $$('main .band h2, main .closing h2, main .closing-band h2').forEach(function (h) {
-      if (h.classList.contains('visually-hidden') || h.textContent.length > 160) return;
-      splitWords(h, 'aw');
-      h.classList.add('assemble');
-      var words = $$('.aw', h);
-      words.forEach(function (w, n) {
-        var a = (n * 137.5) % 360 * Math.PI / 180; // golden-angle scatter: varied but stable from load to load
-        w._dx = Math.cos(a) * (50 + (n % 3) * 22);
-        w._dy = Math.sin(a) * (34 + (n % 2) * 18);
-        w._rot = ((n % 5) - 2) * 6;
-      });
-      assembles.push({ el: h, words: words });
-    });
-    var methods = $$('main .method').map(function (m) { m.classList.add('method-scene'); return { el: m, steps: $$('li:not(.arr)', m) }; });
-    var zooms = $$('main .photo img, main .closing-photo img, main .photo-band img, main .office img');
-    zooms.forEach(function (z) { z.classList.add('scroll-zoom'); });
-
-    function paintBolder() {
-      assembles.forEach(function (s) {
-        var r = s.el.getBoundingClientRect();
-        if (r.top > vh || r.bottom < 0) return;
-        var k = clamp((vh * 0.98 - r.top) / (vh * 0.55)), len = s.words.length;
-        s.words.forEach(function (w, n) {
-          var lk = clamp(k * 1.5 - (n / Math.max(1, len)) * 0.5), e = 1 - Math.pow(1 - lk, 3), inv = 1 - e;
-          if (w._k === e) return;
-          w._k = e;
-          w.style.transform = inv ? 'translate3d(' + (w._dx * inv).toFixed(1) + 'px,' + (w._dy * inv).toFixed(1) + 'px,0) rotate(' + (w._rot * inv).toFixed(1) + 'deg)' : '';
-          w.style.opacity = (0.08 + e * 0.92).toFixed(3);
-        });
-      });
-      methods.forEach(function (m) {
-        var r = m.el.getBoundingClientRect();
-        if (r.top > vh || r.bottom < 0) return;
-        var k = clamp((vh * 0.9 - r.top) / (vh * 0.45));
-        m.el.style.setProperty('--mp', k.toFixed(3));
-        m.steps.forEach(function (li, n) { li.classList.toggle('lit', k >= (n + 0.5) / m.steps.length); });
-      });
-      zooms.forEach(function (z) {
-        var r = z.getBoundingClientRect();
-        if (r.top > vh || r.bottom < 0) return;
-        var t = clamp((vh - r.top) / (vh + r.height)); // 0 entering at the bottom … 1 leaving at the top
-        z.style.transform = 'scale(' + (1.22 - Math.min(t * 1.6, 1) * 0.22).toFixed(4) + ')';
-      });
-    }
-    window.addEventListener('scroll', function () { window.requestAnimationFrame(paintBolder); }, { passive: true });
-    window.addEventListener('resize', function () { window.requestAnimationFrame(paintBolder); }, { passive: true });
-    paintBolder();
-
-    /* Headline word reveal: words rise out of a mask, 40 ms apart (cap 600 ms), when the heading enters */
-    var heads = $$('main h1, main h2').filter(function (h) { return !h.classList.contains('visually-hidden') && !h.classList.contains('assemble') && h.textContent.length < 160; });
-    if (heads.length && 'IntersectionObserver' in window) {
-      heads.forEach(function (h) {
-        splitWords(h, 'w');
-        $$('.w > span', h).forEach(function (s, i) { s.style.transitionDelay = Math.min(i * 40, 600) + 'ms'; });
-        h.classList.add('wsplit');
-      });
-      var hio = new IntersectionObserver(function (entries) {
-        entries.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add('words-in'); hio.unobserve(e.target); } });
-      }, { rootMargin: '0px 0px -8% 0px' });
-      window.requestAnimationFrame(function () { heads.forEach(function (h) { hio.observe(h); }); });
-    }
-
-    /* Count-up record figures: the real figure stays in the page for screen readers; only a hidden-from-AT copy counts */
+    /* Record figures tick up once (1.4 s); the real figure stays in the page for screen readers */
     var figs = $$('.record .fig');
-    if (figs.length && 'IntersectionObserver' in window) {
-      figs.forEach(function (f) {
-        var walker = document.createTreeWalker(f, NodeFilter.SHOW_TEXT, null), t;
-        while ((t = walker.nextNode())) if (/\d/.test(t.nodeValue)) break;
-        if (!t) return;
-        var m = t.nodeValue.match(/^(\D*)([\d.,]+)(.*)$/);
-        if (!m) return;
-        var target = parseFloat(m[2].replace(/,/g, '')), dec = (m[2].split('.')[1] || '').length;
-        var real = document.createElement('span'); real.className = 'visually-hidden'; real.textContent = t.nodeValue;
-        var shown = document.createElement('span'); shown.setAttribute('aria-hidden', 'true'); shown.textContent = m[1] + (0).toFixed(dec) + m[3];
-        t.parentNode.replaceChild(shown, t); shown.parentNode.insertBefore(real, shown);
-        f._count = { el: shown, pre: m[1], post: m[3], to: target, dec: dec };
-      });
-      var cio = new IntersectionObserver(function (entries) {
-        entries.forEach(function (e) {
-          if (!e.isIntersecting || !e.target._count) return;
-          cio.unobserve(e.target);
-          var c = e.target._count, start = null, DUR = 1600;
-          window.requestAnimationFrame(function step(ts) {
-            if (start === null) start = ts;
-            var k = Math.min(1, (ts - start) / DUR), ease = 1 - Math.pow(2, -10 * k);
-            c.el.textContent = c.pre + (k === 1 ? c.to : c.to * ease).toFixed(c.dec) + c.post;
-            if (k < 1) window.requestAnimationFrame(step);
-          });
+    var cio = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (!e.isIntersecting || !e.target._count) return;
+        cio.unobserve(e.target);
+        var c = e.target._count, start = null;
+        window.requestAnimationFrame(function step(ts) {
+          if (start === null) start = ts;
+          var k = Math.min(1, (ts - start) / 1400);
+          c.el.textContent = c.pre + (k === 1 ? c.to : c.to * (1 - Math.pow(2, -10 * k))).toFixed(c.dec) + c.post;
+          if (k < 1) window.requestAnimationFrame(step);
         });
-      }, { threshold: 0.6 });
-      figs.forEach(function (f) { if (f._count) cio.observe(f); });
+      });
+    }, { threshold: 0.6 });
+    figs.forEach(function (f) {
+      var walker = document.createTreeWalker(f, NodeFilter.SHOW_TEXT, null), t;
+      while ((t = walker.nextNode())) if (/\d/.test(t.nodeValue)) break;
+      var m = t && t.nodeValue.match(/^(\D*)([\d.,]+)(.*)$/);
+      if (!m) return;
+      var real = document.createElement('span'); real.className = 'visually-hidden'; real.textContent = t.nodeValue;
+      var show = document.createElement('span'); show.setAttribute('aria-hidden', 'true');
+      var dec = (m[2].split('.')[1] || '').length;
+      show.textContent = m[1] + (0).toFixed(dec) + m[3];
+      t.parentNode.replaceChild(show, t); show.parentNode.insertBefore(real, show);
+      f._count = { el: show, pre: m[1], post: m[3], to: parseFloat(m[2].replace(/,/g, '')), dec: dec };
+      cio.observe(f);
+    });
+
+    var scenes = []; // each: { measure(), target(), apply(value) } with an eased current value
+
+    /* Homepage hero: a held scene. The hero gets 120vh of extra scroll; its content sits in a sticky stage. */
+    var hero = $('main > .hero');
+    if (hero) {
+      var stage = document.createElement('div');
+      stage.className = 'hero-stage';
+      while (hero.firstChild) stage.appendChild(hero.firstChild);
+      hero.appendChild(stage);
+      hero.classList.add('hero-held');
+      var media = $('.hero-media', stage), copy = $('.hero-copy', stage), photo = $('.hero-photo', stage);
+      var canvas = document.createElement('canvas');
+      canvas.className = 'structure';
+      canvas.setAttribute('aria-hidden', 'true');
+      media.appendChild(canvas);
+      var ctx = canvas.getContext('2d');
+      // The structure: a 4 x 4 grid of columns, 12 floors, floor beams and alternating cross braces (a tower skeleton)
+      var segs = [], N = 4, F = 12, S = 1, FH = 0.62;
+      for (var f = 0; f < F; f++) for (var i = 0; i < N; i++) for (var j = 0; j < N; j++) {
+        var x = i - (N - 1) / 2, z = j - (N - 1) / 2, y0 = f * FH, y1 = y0 + FH;
+        segs.push({ a: [x, y0, z], b: [x, y1, z], f: f, k: 0 }); // column
+        if (i < N - 1) segs.push({ a: [x, y1, z], b: [x + S, y1, z], f: f + 0.5, k: 1 }); // beams
+        if (j < N - 1) segs.push({ a: [x, y1, z], b: [x, y1, z + S], f: f + 0.5, k: 1 });
+        if ((i === 0 || i === N - 1) && j < N - 1 && (f + j) % 2 === 0) segs.push({ a: [x, y0, z], b: [x, y1, z + S], f: f + 0.7, k: 2 }); // braces
+        if ((j === 0 || j === N - 1) && i < N - 1 && (f + i) % 2 === 1) segs.push({ a: [x, y0, z], b: [x + S, y1, z], f: f + 0.7, k: 2 });
+      }
+      var mx = 0, my = 0, cmx = 0, cmy = 0, t0 = performance.now(), intro = 0, dpr = 1, cw = 0, chh = 0;
+      window.addEventListener('pointermove', function (e) { mx = e.clientX / vw - 0.5; my = e.clientY / vh - 0.5; }, { passive: true });
+      var heroScene = {
+        cur: 0, val: 0,
+        measure: function () {
+          dpr = Math.min(2, window.devicePixelRatio || 1);
+          cw = media.clientWidth; chh = media.clientHeight;
+          canvas.width = Math.round(cw * dpr); canvas.height = Math.round(chh * dpr);
+        },
+        target: function () { return clamp(-hero.getBoundingClientRect().top / Math.max(1, hero.offsetHeight - vh)); },
+        apply: function (p) {
+          var e = ease(p);
+          if (copy) { copy.style.transform = 'translate3d(0,' + (-e * 80).toFixed(1) + 'px,0)'; copy.style.opacity = (1 - clamp((p - 0.45) / 0.4)).toFixed(3); }
+          if (photo) photo.style.transform = 'scale(' + (1.04 + e * 0.16).toFixed(4) + ')';
+          drawStructure(p);
+        },
+        live: true // the structure also breathes with time and the cursor, so it repaints every frame while on screen
+      };
+      function drawStructure(p) {
+        var now = performance.now();
+        intro = Math.min(1, (now - t0) / 1800);
+        cmx += (mx - cmx) * 0.05; cmy += (my - cmy) * 0.05;
+        var build = 0.18 + 0.32 * ease(intro) + 0.5 * ease(p); // share of the tower that exists
+        var yaw = 0.55 + (now - t0) / 24000 + cmx * 0.5 + ease(p) * 1.1;
+        var pitch = -0.16 + cmy * 0.18 - ease(p) * 0.1;
+        var dist = 14 - ease(p) * 5.5, cy = F * FH * (0.42 + ease(p) * 0.18);
+        var small = cw < 768; // phones: the tower stands higher and quieter, behind the headline
+        var cx = cw * (rtl ? (small ? 0.2 : 0.25) - ease(p) * 0.06 : (small ? 0.8 : 0.75) + ease(p) * 0.06), sy = chh * (small ? 0.42 : 0.56), focal = Math.min(cw, chh * 1.5) * 0.95;
+        var cY = Math.cos(yaw), sY = Math.sin(yaw), cP = Math.cos(pitch), sP = Math.sin(pitch);
+        function proj(v) {
+          var x = v[0] * cY - v[2] * sY, z = v[0] * sY + v[2] * cY, y = v[1] - cy;
+          var y2 = y * cP - z * sP, z2 = y * sP + z * cP + dist;
+          if (z2 < 0.4) return null;
+          return [cx + (x * focal) / z2, sy - (y2 * focal) / z2, z2];
+        }
+        ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+        ctx.clearRect(0, 0, cw, chh);
+        ctx.lineCap = 'square';
+        var top = build * F;
+        for (var pass = 0; pass < 2; pass++) {
+          for (var n = 0; n < segs.length; n++) {
+            var s = segs[n];
+            if (s.f > top) continue;
+            var grow = clamp(top - s.f); // the newest floor draws in
+            var A = proj(s.a), B0 = proj(s.b);
+            if (!A || !B0) continue;
+            var B = [A[0] + (B0[0] - A[0]) * grow, A[1] + (B0[1] - A[1]) * grow];
+            var depth = clamp(1.25 - (A[2] - dist + 3) / 8); // nearer beams are brighter
+            var alpha = (s.k === 2 ? 0.35 : 1) * (0.14 + depth * 0.5) * (1 - clamp((p - 0.82) / 0.18) * 0.6) * (small ? 0.5 : 1);
+            ctx.beginPath(); ctx.moveTo(A[0], A[1]); ctx.lineTo(B[0], B[1]);
+            if (pass === 0) { ctx.strokeStyle = 'rgba(150,135,240,' + (alpha * 0.22).toFixed(3) + ')'; ctx.lineWidth = 5; }
+            else { ctx.strokeStyle = 'rgba(232,228,255,' + alpha.toFixed(3) + ')'; ctx.lineWidth = s.k === 0 ? 1.4 : 1; }
+            ctx.stroke();
+          }
+        }
+      }
+      scenes.push(heroScene);
     }
 
-    if (!finePointer) return;
-
-    /* Magnetic buttons: drift up to 8 px towards the pointer, settle back in 300 ms */
-    $$('main .btn-primary, main .btn-secondary').forEach(function (b) {
-      b.classList.add('magnetic');
-      b.addEventListener('pointermove', function (e) {
-        var r = b.getBoundingClientRect();
-        var dx = (e.clientX - r.left - r.width / 2) / (r.width / 2), dy = (e.clientY - r.top - r.height / 2) / (r.height / 2);
-        b.style.transform = 'translate3d(' + (dx * 8).toFixed(1) + 'px,' + (dy * 5).toFixed(1) + 'px,0)';
+    /* The six practices as a sideways filmstrip (desktop and tablet landscape) */
+    var film = $('main .whatwedo .practices-wrap');
+    var track = film && $('.practices', film);
+    if (film && track && window.matchMedia('(min-width: 1024px)').matches) {
+      film.classList.add('film');
+      var fstage = document.createElement('div');
+      fstage.className = 'film-stage';
+      film.insertBefore(fstage, track);
+      fstage.appendChild(track);
+      // a progress line with a 01 / 06 counter under the strip, then the strip's own footnote
+      var foot = document.createElement('div');
+      foot.className = 'film-foot';
+      foot.setAttribute('aria-hidden', 'true');
+      foot.innerHTML = '<span class="film-bar"><i></i></span><span class="film-count" dir="ltr"></span>';
+      fstage.appendChild(foot);
+      var note = $('.wwd-foot', film);
+      if (note) fstage.appendChild(note);
+      var bar = $('.film-bar i', foot), count = $('.film-count', foot), total = track.children.length;
+      var pad = function (n) { return (n < 10 ? '0' : '') + n; };
+      count.textContent = pad(1) + ' / ' + pad(total);
+      var span = 0;
+      scenes.push({
+        cur: 0, val: 0,
+        measure: function () {
+          span = Math.max(0, track.scrollWidth - fstage.clientWidth);
+          film.style.height = (span + vh) + 'px';
+        },
+        target: function () { return clamp(-film.getBoundingClientRect().top / Math.max(1, film.offsetHeight - vh)); },
+        apply: function (p) {
+          track.style.transform = 'translate3d(' + ((rtl ? 1 : -1) * p * span).toFixed(1) + 'px,0,0)';
+          bar.style.transform = 'scaleX(' + (0.06 + p * 0.94).toFixed(4) + ')';
+          count.textContent = pad(Math.min(total, 1 + Math.floor(p * total * 0.999))) + ' / ' + pad(total);
+        }
       });
-      b.addEventListener('pointerleave', function () { b.style.transform = ''; });
+      // keyboard: a focused card scrolls the page to the point where that card is in view
+      track.addEventListener('focusin', function (e) {
+        var li = e.target.closest('li');
+        if (!li) return;
+        var idx = Array.prototype.indexOf.call(track.children, li), n = track.children.length;
+        var p = n > 1 ? idx / (n - 1) : 0;
+        var top = film.getBoundingClientRect().top + window.scrollY;
+        window.scrollTo({ top: top + p * (film.offsetHeight - vh), behavior: 'instant' });
+      });
+    }
+
+    /* The method lights up step by step, with a line drawing under it */
+    $$('main .method').forEach(function (m) {
+      var steps = $$('li:not(.arr)', m);
+      m.classList.add('method-scene');
+      scenes.push({
+        cur: 0, val: 0, measure: function () {},
+        target: function () { var r = m.getBoundingClientRect(); return clamp((vh * 0.85 - r.top) / (vh * 0.45)); },
+        apply: function (k) {
+          m.style.setProperty('--mp', k.toFixed(3));
+          steps.forEach(function (li, n) { li.classList.toggle('lit', k >= (n + 0.6) / steps.length); });
+        }
+      });
     });
 
-    /* Card tilt: up to 4 degrees towards the pointer, with a soft light following it */
-    $$('.rcard, .gcard, .icard, .feat-tile').forEach(function (c) {
-      c.classList.add('tilt');
-      c.addEventListener('pointermove', function (e) {
-        var r = c.getBoundingClientRect(), x = (e.clientX - r.left) / r.width, y = (e.clientY - r.top) / r.height;
-        c.style.transform = 'perspective(900px) rotateX(' + ((0.5 - y) * 6).toFixed(2) + 'deg) rotateY(' + ((x - 0.5) * 8).toFixed(2) + 'deg)';
-        c.style.setProperty('--mx', (x * 100).toFixed(1) + '%');
-        c.style.setProperty('--my', (y * 100).toFixed(1) + '%');
+    /* Photo interludes: the band opens from a narrower frame to full width as it rises, and the photo drifts slowly */
+    $$('main .interlude').forEach(function (band) {
+      var img = $('img', band);
+      scenes.push({
+        cur: 0, val: -1, measure: function () {},
+        target: function () { var r = band.getBoundingClientRect(); return clamp((vh - r.top) / (vh + r.height)); },
+        apply: function (p) {
+          var open = ease(clamp(p * 2.2)), inset = (8 * (1 - open)).toFixed(2);
+          band.style.clipPath = 'inset(0 ' + inset + '% 0 ' + inset + '%)';
+          if (img) img.style.transform = 'translate3d(0,' + ((p - 0.5) * -70).toFixed(1) + 'px,0) scale(' + (1.14 - open * 0.06).toFixed(4) + ')';
+        }
       });
-      c.addEventListener('pointerleave', function () { c.style.transform = ''; });
     });
+
+    /* One frame loop: values ease 14% of the way to their target each frame; it sleeps when everything has settled */
+    var running = false;
+    function frame() {
+      var busy = false;
+      scenes.forEach(function (s) {
+        var t = s.target();
+        s.cur += (t - s.cur) * 0.14;
+        if (Math.abs(t - s.cur) < 0.0004) s.cur = t; else busy = true;
+        if (s.live || s.cur !== s.val) { s.apply(s.cur); s.val = s.cur; }
+        if (s.live && hero && hero.getBoundingClientRect().bottom > 0) busy = true;
+      });
+      if (busy) window.requestAnimationFrame(frame); else running = false;
+    }
+    function wake() { if (!running) { running = true; window.requestAnimationFrame(frame); } }
+    function measureAll() { vh = window.innerHeight; vw = window.innerWidth; scenes.forEach(function (s) { s.measure(); }); wake(); }
+    window.addEventListener('scroll', wake, { passive: true });
+    window.addEventListener('pointermove', wake, { passive: true });
+    window.addEventListener('resize', function () { window.requestAnimationFrame(measureAll); }, { passive: true });
+    window.addEventListener('load', measureAll);
+    measureAll();
   })();
 })();
