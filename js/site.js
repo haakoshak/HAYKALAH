@@ -454,6 +454,21 @@
       if (first) first.focus();
     });
   });
+  /* ------------------------------------------------------------ Phones: page heroes show their photo behind the title only
+     (2026-10-24). The intro paragraph sits below the photo on the plain page, so the image is not buried under text. */
+  function heroIntroGap() {
+    $$('.phero').forEach(function (h) {
+      var intro = $('.phero-intro', h);
+      if (!intro) return;
+      if (smallMQ.matches) h.style.setProperty('--intro-h', (intro.offsetHeight + 28) + 'px');
+      else h.style.removeProperty('--intro-h');
+    });
+  }
+  heroIntroGap();
+  window.addEventListener('resize', heroIntroGap, { passive: true });
+  window.addEventListener('load', heroIntroGap);
+  onMQ(smallMQ, heroIntroGap);
+
   /* ------------------------------------------------------------ Motion v3 (Hisham, 2026-10-24: "a few big, crafted moments")
      Site-wide: headings rise through a curtain mask; photos open from a frame and settle; record figures tick up once.
      Homepage only: a held hero scene in which a 3D structure (thin beams on a canvas, no library) builds as the reader

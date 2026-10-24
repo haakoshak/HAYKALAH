@@ -2817,3 +2817,16 @@ legend { max-width: 100%; }
   .js .interlude { clip-path: inset(0 8% 0 8%); }
   .js .interlude img { transform: scale(1.14); will-change: transform; }
 }
+
+/* ---------------------------------------------------------------- Review fixes (2026-10-24) */
+/* Phones: the hero photo ends above the intro (js sets --intro-h) and fades into the page */
+@media (max-width: 767px) {
+  .js .phero-media { bottom: var(--intro-h, 0px); -webkit-mask-image: linear-gradient(#000 72%, transparent); mask-image: linear-gradient(#000 72%, transparent); }
+}
+/* Interludes share one colour grade: a soft Midnight Iris tint over slightly calmer colour */
+.interlude img { filter: saturate(0.82) contrast(1.06); }
+.interlude::before { content: ""; position: absolute; inset: 0; z-index: 1; pointer-events: none; background-color: #3b2f9e; mix-blend-mode: color; opacity: 0.3; }
+.interlude::after { z-index: 2; }
+/* Expertise hub: plain closing band (the approach photo band sits right above it) */
+.closing-plain .closing-band { background-color: var(--surface-raised); }
+.closing-plain .closing-band::after { display: none; }
