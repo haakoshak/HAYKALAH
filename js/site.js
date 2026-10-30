@@ -454,6 +454,52 @@
       if (first) first.focus();
     });
   });
+  /* ------------------------------------------------------------ Colour theme (Hisham, 2026-10-30)
+     The inline <head> script already set data-theme (the visitor's saved choice, else their device setting) before
+     the first paint. This adds the header switch, which cycles Auto → Light → Dark and remembers the choice; in Auto
+     the page follows the device live (for example a PC that turns dark in the evening). */
+  (function theme() {
+    var ar = doc.lang === 'ar';
+    var L = ar
+      ? { auto: 'تلقائي (حسب جهازك)', light: 'فاتح', dark: 'داكن', label: 'مظهر الألوان: ' }
+      : { auto: 'Auto (follows your device)', light: 'Light', dark: 'Dark', label: 'Colour theme: ' };
+    var mq = window.matchMedia('(prefers-color-scheme: light)');
+    var ICON = {
+      auto: '<svg width="20" height="20" viewBox="0 0 20 20" aria-hidden="true" focusable="false"><circle cx="10" cy="10" r="7.25" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M10 2.75a7.25 7.25 0 0 1 0 14.5z" fill="currentColor"/></svg>',
+      light: '<svg width="20" height="20" viewBox="0 0 20 20" aria-hidden="true" focusable="false"><circle cx="10" cy="10" r="3.6" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M10 1.5v2.2M10 16.3v2.2M1.5 10h2.2M16.3 10h2.2M4 4l1.55 1.55M14.45 14.45 16 16M4 16l1.55-1.55M14.45 5.55 16 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>',
+      dark: '<svg width="20" height="20" viewBox="0 0 20 20" aria-hidden="true" focusable="false"><path d="M16.5 12.3A7 7 0 0 1 7.7 3.5a7 7 0 1 0 8.8 8.8z" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></svg>'
+    };
+    var pref = doc.getAttribute('data-theme-pref') || 'auto';
+    function resolved() { return pref === 'auto' ? (mq.matches ? 'light' : 'dark') : pref; }
+    function apply() {
+      var t = resolved();
+      doc.setAttribute('data-theme', t);
+      doc.setAttribute('data-theme-pref', pref);
+      var cs = $('meta[name="color-scheme"]'); if (cs) cs.setAttribute('content', t);
+      var tc = $('meta[name="theme-color"]'); if (tc) tc.setAttribute('content', t === 'light' ? '#f5f4fb' : '#1c1840');
+      $$('.theme-btn').forEach(function (b) {
+        b.innerHTML = ICON[pref];
+        b.setAttribute('aria-label', L.label + L[pref]);
+        b.title = L.label + L[pref];
+      });
+    }
+    var host = $('.site-header .hd-end');
+    if (host) {
+      var btn = document.createElement('button');
+      btn.type = 'button';
+      btn.className = 'icon-btn theme-btn';
+      host.insertBefore(btn, host.firstChild);
+      btn.addEventListener('click', function () {
+        pref = pref === 'auto' ? 'light' : pref === 'light' ? 'dark' : 'auto';
+        if (pref === 'auto') { try { window.localStorage.removeItem('hk-theme'); } catch (e) { /* storage blocked */ } }
+        else store.set('hk-theme', pref);
+        apply();
+      });
+    }
+    onMQ(mq, function () { if (pref === 'auto') apply(); });
+    apply();
+  })();
+
   /* ------------------------------------------------------------ Phones: page heroes show their photo behind the title only
      (2026-10-24). The intro paragraph sits below the photo on the plain page, so the image is not buried under text. */
   function heroIntroGap() {
