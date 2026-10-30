@@ -393,10 +393,11 @@
       }
     });
   }
-  // Scroll scenes re-measure (on resize) when the banner appears or goes
   // --consent-h lets the held homepage hero keep its buttons above the banner while it shows
-  function showBanner() { if (banner) { banner.classList.add('is-visible'); doc.style.setProperty('--consent-h', banner.offsetHeight + 'px'); window.dispatchEvent(new Event('resize')); } }
-  function hideBanner() { if (banner) { banner.classList.remove('is-visible'); doc.style.removeProperty('--consent-h'); window.dispatchEvent(new Event('resize')); } }
+  // html.consent-pending is set before the first paint by the inline <head> script, so the held homepage hero reserves
+  // the banner's height from the start (no layout shift when the banner appears); it goes once a choice is made
+  function showBanner() { if (banner) { banner.classList.add('is-visible'); window.dispatchEvent(new Event('resize')); } }
+  function hideBanner() { if (banner) { banner.classList.remove('is-visible'); doc.classList.remove('consent-pending'); window.dispatchEvent(new Event('resize')); } }
 
   // Focus not obscured (WCAG 2.2 2.4.11): a focused element must not sit under the sticky header or the cookie banner.
   // When keyboard focus lands under either, scroll just enough to show it with a 16px margin.
