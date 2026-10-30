@@ -483,12 +483,10 @@
         b.title = L.label + L[pref];
       });
     }
-    var host = $('.site-header .hd-end');
-    if (host) {
-      var btn = document.createElement('button');
-      btn.type = 'button';
-      btn.className = 'icon-btn theme-btn';
-      host.insertBefore(btn, host.firstChild);
+    // the button is in the header markup (no layout shift); it is only created here if a page lacks it
+    var btn = $('.site-header .theme-btn'), host = $('.site-header .hd-end');
+    if (!btn && host) { btn = document.createElement('button'); btn.type = 'button'; btn.className = 'icon-btn theme-btn'; host.insertBefore(btn, host.firstChild); }
+    if (btn) {
       btn.addEventListener('click', function () {
         pref = pref === 'auto' ? 'light' : pref === 'light' ? 'dark' : 'auto';
         if (pref === 'auto') { try { window.localStorage.removeItem('hk-theme'); } catch (e) { /* storage blocked */ } }
@@ -570,7 +568,7 @@
           if (k < 1) window.requestAnimationFrame(step);
         });
       });
-    }, { threshold: 0.6 });
+    }, { threshold: 0.2 }); // low, so a fast scroll past the figures still starts the count
     figs.forEach(function (f) {
       var walker = document.createTreeWalker(f, NodeFilter.SHOW_TEXT, null), t;
       while ((t = walker.nextNode())) if (/\d/.test(t.nodeValue)) break;
