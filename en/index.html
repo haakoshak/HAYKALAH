@@ -2,6 +2,7 @@
 <html lang="en" dir="ltr" class="no-js">
 <head>
 <meta charset="utf-8">
+<script>document.documentElement.className=document.documentElement.className.replace('no-js','js')</script><!-- before first paint, so JS-only layouts (the held homepage hero) never shift -->
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="msvalidate.01" content="3F4AE95AB422BA13A6A015BC8DAB6C1B"><!-- Bing Webmaster Tools verification (2026-10-23); keep -->
 <title>HAYKALAH | Real Estate, Sukuk and Family Office Structuring, Saudi Arabia</title>
@@ -32,9 +33,9 @@
 <meta name="twitter:description" content="A Saudi-born structuring house that designs, implements, operates and monitors what it structures. Riyadh and Jeddah, since 2004.">
 <meta name="twitter:image" content="https://www.haykalah.com/img/og/og-home-en.png">
 
-<link rel="stylesheet" href="../css/haykalah.css?v=25">
+<link rel="stylesheet" href="../css/haykalah.css?v=26">
 <script>document.documentElement.className = document.documentElement.className.replace('no-js', 'js');</script>
-<script src="../js/site.js?v=22" defer></script>
+<script src="../js/site.js?v=23" defer></script>
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -368,40 +369,43 @@
 <main id="main">
 
   <!-- 1 · Hero -->
-  <section class="hero" data-hero aria-labelledby="hero-title">
-    <div class="hero-media" data-placeholder="hero-video-riyadh-1920x1080">
-      <div class="hero-layer" data-parallax="top">
-        <!-- Hero video, ready for the licensed Riyadh sky view (dusk to night, elevated aerial along King Fahd Road) [TBD: licence]. Keep it muted, looping and inline, with a poster.
-             No autoplay attribute: site.js starts it only when the visitor has not asked for reduced motion,
-             so reduced-motion visitors (and no-JS visitors) see the poster. Delete the .skyline-hero image once the film is in.
-        <video class="hero-video" muted loop playsinline preload="metadata" poster="../img/hero/hero-riyadh-poster-1920x1080.webp" aria-hidden="true">
-          <source src="../media/hero-riyadh-dusk-1080p.webm" type="video/webm">
-          <source src="../media/hero-riyadh-dusk-1080p.mp4" type="video/mp4">
-        </video>
-        -->
-        <picture>
-          <source media="(max-width: 700px)" srcset="../img/photos/riyadh-kingdom-centre-night-1200.webp" width="1200" height="1500">
-          <img class="hero-photo" src="../img/photos/riyadh-kingdom-centre-night-2400.webp" alt="" width="2400" height="1200" fetchpriority="high" decoding="async">
-        </picture>
-        <div class="hero-veil"></div>
-      </div>
-    </div>
-    <div class="wrap hero-body">
-      <div class="hero-copy">
-        <p class="eyebrow">Strategic architects of Value</p>
-        <h1 id="hero-title" class="display">We design, implement, operate and monitor what we structure.</h1>
-        <p class="lede hero-sub">A Saudi-born structuring house, operating from Riyadh and Jeddah since 2004.</p>
-        <div class="ctas">
-          <a class="btn btn-primary" href="#consultation">Let’s structure what’s next</a>
-          <a class="btn btn-secondary" href="#signature-work">Signature work</a>
+  <section class="hero hero-held" data-hero aria-labelledby="hero-title">
+    <div class="hero-stage">
+      <div class="hero-media" data-placeholder="hero-video-riyadh-1920x1080">
+        <div class="hero-layer" data-parallax="top">
+          <!-- Hero video, ready for the licensed Riyadh sky view (dusk to night, elevated aerial along King Fahd Road) [TBD: licence]. Keep it muted, looping and inline, with a poster.
+               No autoplay attribute: site.js starts it only when the visitor has not asked for reduced motion,
+               so reduced-motion visitors (and no-JS visitors) see the poster. Delete the .skyline-hero image once the film is in.
+          <video class="hero-video" muted loop playsinline preload="metadata" poster="../img/hero/hero-riyadh-poster-1920x1080.webp" aria-hidden="true">
+            <source src="../media/hero-riyadh-dusk-1080p.webm" type="video/webm">
+            <source src="../media/hero-riyadh-dusk-1080p.mp4" type="video/mp4">
+          </video>
+          -->
+          <picture>
+            <source type="image/avif" media="(max-width: 700px)" srcset="../img/photos/riyadh-kingdom-centre-night-1200.avif" width="1200" height="1500"><source media="(max-width: 700px)" srcset="../img/photos/riyadh-kingdom-centre-night-1200.webp" width="1200" height="1500">
+            <source type="image/avif" srcset="../img/photos/riyadh-kingdom-centre-night-2400.avif">
+            <img class="hero-photo" src="../img/photos/riyadh-kingdom-centre-night-2400.webp" alt="" width="2400" height="1200" fetchpriority="high" decoding="async">
+          </picture>
+          <div class="hero-veil"></div>
         </div>
       </div>
-      <div class="film-cap">
-        <!-- Show this caption again once the licensed hero video is in (the photo hero needs none). <p><b>Hero video</b>Licensed Riyadh sky view, dusk to night, elevated aerial along King Fahd Road (Kingdom Centre, Al Faisaliah, KAFD), 1920×1080, 10–15 s <span class="tbd">[TBD: licence]</span></p> -->
-        <button class="icon-btn" type="button" data-video-toggle data-state="playing" data-label-pause="Pause hero video" data-label-play="Play hero video" aria-label="Pause hero video" disabled>
-          <svg class="i-pause" width="14" height="14" viewBox="0 0 14 14" aria-hidden="true" focusable="false"><path d="M3.5 1v12M10.5 1v12" stroke="currentColor" stroke-width="2" fill="none"/></svg>
-          <svg class="i-play" width="14" height="14" viewBox="0 0 14 14" aria-hidden="true" focusable="false"><path d="M3 1.5v11l9-5.5z" fill="currentColor"/></svg>
-        </button>
+      <div class="wrap hero-body">
+        <div class="hero-copy">
+          <p class="eyebrow">Strategic architects of Value</p>
+          <h1 id="hero-title" class="display">We design, implement, operate and monitor what we structure.</h1>
+          <p class="lede hero-sub">A Saudi-born structuring house, operating from Riyadh and Jeddah since 2004.</p>
+          <div class="ctas">
+            <a class="btn btn-primary" href="#consultation">Let’s structure what’s next</a>
+            <a class="btn btn-secondary" href="#signature-work">Signature work</a>
+          </div>
+        </div>
+        <div class="film-cap">
+          <!-- Show this caption again once the licensed hero video is in (the photo hero needs none). <p><b>Hero video</b>Licensed Riyadh sky view, dusk to night, elevated aerial along King Fahd Road (Kingdom Centre, Al Faisaliah, KAFD), 1920×1080, 10–15 s <span class="tbd">[TBD: licence]</span></p> -->
+          <button class="icon-btn" type="button" data-video-toggle data-state="playing" data-label-pause="Pause hero video" data-label-play="Play hero video" aria-label="Pause hero video" disabled>
+            <svg class="i-pause" width="14" height="14" viewBox="0 0 14 14" aria-hidden="true" focusable="false"><path d="M3.5 1v12M10.5 1v12" stroke="currentColor" stroke-width="2" fill="none"/></svg>
+            <svg class="i-play" width="14" height="14" viewBox="0 0 14 14" aria-hidden="true" focusable="false"><path d="M3 1.5v11l9-5.5z" fill="currentColor"/></svg>
+          </button>
+        </div>
       </div>
     </div>
   </section>
@@ -509,6 +513,7 @@
   <!-- Photo interlude (decorative, 2026-10-24) -->
   <div class="interlude" aria-hidden="true">
     <picture>
+      <source type="image/avif" srcset="../img/photos/jeddah-aerial-2400.avif">
       <img src="../img/photos/jeddah-aerial-2400.webp" alt="" width="2400" height="1200" loading="lazy" decoding="async">
     </picture>
   </div>
@@ -564,7 +569,7 @@
   <section class="holy" id="holy-cities" aria-labelledby="holy-title">
     <div class="hc-panel hc-main" data-parallax-host>
       <div class="photo" data-parallax>
-        <picture><img src="../img/photos/makkah-night-illustrative-2400.webp" alt="" width="2400" height="1600" loading="lazy" decoding="async"></picture>
+        <picture><source type="image/avif" srcset="../img/photos/makkah-night-illustrative-2400.avif"><img src="../img/photos/makkah-night-illustrative-2400.webp" alt="" width="2400" height="1600" loading="lazy" decoding="async"></picture>
       </div>
       <div class="veil"></div>
       <div class="hc-inner">
@@ -648,6 +653,7 @@
   <!-- Photo interlude (decorative, 2026-10-24) -->
   <div class="interlude" aria-hidden="true">
     <picture>
+      <source type="image/avif" srcset="../img/photos/heritage-diriyah-2400.avif">
       <img src="../img/photos/heritage-diriyah-2400.webp" alt="" width="2400" height="1200" loading="lazy" decoding="async">
     </picture>
   </div>
@@ -693,6 +699,7 @@
   <!-- Photo interlude (decorative, 2026-10-24) -->
   <div class="interlude" aria-hidden="true">
     <picture>
+      <source type="image/avif" srcset="../img/photos/saudi-arabia-night-from-space-2400.avif">
       <img src="../img/photos/saudi-arabia-night-from-space-2400.webp" alt="" width="2400" height="1200" loading="lazy" decoding="async">
     </picture>
   </div>
@@ -794,7 +801,7 @@
   <!-- 8 · Group and ventures -->
   <section class="group photo-band" id="group" aria-labelledby="group-title" data-parallax-host>
     <div class="photo" data-parallax>
-      <picture><source media="(max-width: 900px)" srcset="../img/photos/riyadh-king-fahd-road-night-1200.webp" width="1200" height="600"><img src="../img/photos/riyadh-king-fahd-road-night-2400.webp" alt="" width="2400" height="1200" loading="lazy" decoding="async"></picture>
+      <picture><source type="image/avif" media="(max-width: 900px)" srcset="../img/photos/riyadh-king-fahd-road-night-1200.avif" width="1200" height="600"><source media="(max-width: 900px)" srcset="../img/photos/riyadh-king-fahd-road-night-1200.webp" width="1200" height="600"><source type="image/avif" srcset="../img/photos/riyadh-king-fahd-road-night-2400.avif"><img src="../img/photos/riyadh-king-fahd-road-night-2400.webp" alt="" width="2400" height="1200" loading="lazy" decoding="async"></picture>
     </div>
     <div class="veil"></div>
     <div class="wrap group-grid">
@@ -844,7 +851,7 @@
       <div class="wrap">
         <h2 id="closing-title" class="headline" data-reveal>We are not choosing between advisory and ownership. We are using advisory and execution to create the value.</h2>
       </div>
-      <picture><source media="(max-width: 900px)" srcset="../img/photos/riyadh-dusk-1200.webp" width="1200" height="600"><img class="closing-photo" src="../img/photos/riyadh-dusk-2400.webp" alt="" width="2400" height="1200" loading="lazy" decoding="async"></picture>
+      <picture><source type="image/avif" media="(max-width: 900px)" srcset="../img/photos/riyadh-dusk-1200.avif" width="1200" height="600"><source media="(max-width: 900px)" srcset="../img/photos/riyadh-dusk-1200.webp" width="1200" height="600"><source type="image/avif" srcset="../img/photos/riyadh-dusk-2400.avif"><img class="closing-photo" src="../img/photos/riyadh-dusk-2400.webp" alt="" width="2400" height="1200" loading="lazy" decoding="async"></picture>
     </div>
     <div class="consult" id="consultation">
       <div class="wrap consult-grid">

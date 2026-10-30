@@ -493,7 +493,7 @@
       entries.forEach(function (e) { if (e.isIntersecting) { shown(e.target); rio.unobserve(e.target); } });
     }, { rootMargin: '0px 0px -10% 0px' });
     $$('main h1, main h2').forEach(function (h) {
-      if (h.classList.contains('visually-hidden') || h.closest('.consent')) return;
+      if (h.classList.contains('visually-hidden') || h.closest('.consent, .hero, .phero')) return; // hero headings show at once (Speed Index)
       h.classList.add('curtain');
       rio.observe(h);
     });
@@ -544,10 +544,8 @@
     /* Homepage hero: a held scene. The hero gets 120vh of extra scroll; its content sits in a sticky stage. */
     var hero = $('main > .hero');
     if (hero) {
-      var stage = document.createElement('div');
-      stage.className = 'hero-stage';
-      while (hero.firstChild) stage.appendChild(hero.firstChild);
-      hero.appendChild(stage);
+      var stage = $('.hero-stage', hero); // in the markup since 2026-10-30, so the page never shifts when this runs
+      if (!stage) { stage = document.createElement('div'); stage.className = 'hero-stage'; while (hero.firstChild) stage.appendChild(hero.firstChild); hero.appendChild(stage); }
       hero.classList.add('hero-held');
       var media = $('.hero-media', stage), copy = $('.hero-copy', stage), photo = $('.hero-photo', stage);
       var canvas = document.createElement('canvas');
@@ -581,7 +579,9 @@
           if (photo) photo.style.transform = 'scale(' + (1.04 + e * 0.16).toFixed(4) + ')';
           drawStructure(p);
         },
-        live: true // the structure also breathes with time and the cursor, so it repaints every frame while on screen
+        // with a mouse the structure breathes with time and the cursor, so it repaints every frame while on screen; on touch
+        // screens it only repaints for the first 1.8 s and while scrolling, to keep phones' main thread free
+        live: window.matchMedia('(hover: hover) and (pointer: fine)').matches
       };
       function drawStructure(p) {
         var now = performance.now();
@@ -706,7 +706,7 @@
         s.cur += (t - s.cur) * 0.14;
         if (Math.abs(t - s.cur) < 0.0004) s.cur = t; else busy = true;
         if (s.live || s.cur !== s.val) { s.apply(s.cur); s.val = s.cur; }
-        if (s.live && hero && hero.getBoundingClientRect().bottom > 0) busy = true;
+        if ((s.live || performance.now() - t0 < 1900) && hero && hero.getBoundingClientRect().bottom > 0) busy = true;
       });
       if (busy) window.requestAnimationFrame(frame); else running = false;
     }
